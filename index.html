@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Khyber Chai House — Links (Full Colour)</title>
+<title>Khyber Chai House — Links</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
   :root{
     --brand:#943c2c; --light:#fcf5ec; --light2:#f1e3db; --ink:#111;
-    /* Brand colours for buttons */
     --ig:#E4405F; --fb:#1877F2; --tt:#000000;
     --ue:#06C167; --dd:#FF3008; --rt:#00B3A0; --sk:#FF6A00; --ft:#00C362;
   }
@@ -20,18 +19,10 @@
     display:flex; flex-direction:column; align-items:center; padding:2rem 1rem 4rem;
   }
   .container{ width:100%; max-width:720px; text-align:center; padding:0 .25rem; }
-
-  /* Bigger, responsive logo */
   .logo{ width:280px; max-width:78%; display:block; margin:0 auto 1rem; }
-
   h1{ font-size:clamp(1.6rem, 2.5vw + 1rem, 2.35rem); margin:.2rem 0 .25rem; }
-  .address{
-    margin:.1rem 0 1rem;
-    font-size:.98rem; color:#f5e8dc; opacity:.92;
-  }
+  .address{ margin:.1rem 0 1rem; font-size:.98rem; color:#f5e8dc; opacity:.92; }
   h2{ margin:1.25rem 0 .75rem; font-size:1.15rem; }
-
-  /* Unified round icon buttons (social + ordering) */
   .icon-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:1rem; }
   .circle-btn{
     width:54px; height:54px; border-radius:50%;
@@ -42,12 +33,8 @@
   }
   .circle-btn:hover{ transform:scale(1.08); background:rgba(252,245,236,.06); }
   .circle-btn svg{ width:28px; height:28px; display:block; fill:#fff; }
-
-  /* App icon with label */
   .app{ display:flex; flex-direction:column; align-items:center; gap:6px; min-width:70px; }
   .app .label{ font-size:.78rem; line-height:1; color:#fcf5ec; opacity:.95; }
-
-  /* Full-colour backgrounds for recognizability */
   .ig{ background:var(--ig); border-color:transparent; }
   .fb{ background:var(--fb); border-color:transparent; }
   .tt{ background:var(--tt); border-color:#111; }
@@ -56,8 +43,6 @@
   .rt{ background:var(--rt); border-color:transparent; }
   .sk{ background:var(--sk); border-color:transparent; }
   .ft{ background:var(--ft); border-color:transparent; }
-
-  /* Primary buttons (no icons) */
   .link-button{
     display:block; width:100%; padding:1rem; margin:.45rem 0; background:var(--light); color:var(--brand);
     text-decoration:none; border-radius:10px; font-weight:700; transition:background-color .2s,color .2s,transform .06s;
@@ -65,8 +50,6 @@
   }
   .link-button:hover{ background:var(--light2); color:#7a2f22; }
   .link-button:active{ transform:translateY(1px); }
-
-  /* Sections/cards */
   .section-wrap{ margin-top:1rem; text-align:left; display:none; }
   .card{
     max-width:720px; margin:0 auto;
@@ -81,107 +64,43 @@
   .price{ white-space:nowrap; opacity:.95; }
   .muted{ opacity:.9; }
   .footer{ margin-top:2rem; font-size:.95rem; color:#f5e8dc; opacity:.95; }
-
-  /* Form */
-  .form-grid{ display:grid; grid-template-columns:1fr; gap:.9rem; }
-  @media (min-width:560px){ .form-grid{ grid-template-columns:1fr 1fr; } .form-grid .full{ grid-column:1 / -1; } }
+  select.guests{ background:rgba(252,245,236,.08); color:var(--light); border-color:rgba(241,227,219,.35); font-weight:600; }
+  select.guests option[disabled]{ color:#f5e8dc; opacity:.7; }
   input, select, textarea{
     width:100%; padding:.95rem 1rem; border-radius:8px; border:1px solid rgba(241,227,219,.35);
     background:rgba(252,245,236,.08); color:var(--light);
   }
   input::placeholder, textarea::placeholder{ color:#f5e8dc; opacity:.75; }
-  select.guests{ background:rgba(252,245,236,.08); color:var(--light); border-color:rgba(241,227,219,.35); font-weight:600; }
-  select.guests option[disabled]{ color:#f5e8dc; opacity:.7; }
   textarea{ min-height:110px; }
   .btn{
     display:inline-block; background:var(--light); color:var(--brand); border:0; border-radius:10px; font-weight:700;
     padding:.95rem 1.1rem; cursor:pointer; box-shadow:0 1px 0 rgba(0,0,0,.12), 0 6px 16px rgba(0,0,0,.12);
   }
   .btn:hover{ background:var(--light2); color:#7a2f22; }
-
-  /* Map */
   #map{ width:100%; height:340px; border-radius:10px; overflow:hidden; }
-</style>
 
-<style>
-  /* Highlight the Sign Up button with a gentle pulse */
-  .cta-highlight{
-    position: relative;
-    animation: ctaPulse 2.8s ease-in-out infinite;
+  /* Sticky flashing banner */
+  #now-open-banner{
+    position: sticky; top:0; z-index:9999; width:100%; box-sizing:border-box;
+    padding:.75rem 1rem; text-align:center; color:#fff; font-weight:700; letter-spacing:.3px;
+    background: linear-gradient(90deg, var(--brand) 0%, #b67c4b 60%, #e2b07a 100%);
+    border-bottom:1px solid rgba(0,0,0,.15); box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    animation: bannerPulse 2.6s ease-in-out infinite;
   }
-  .cta-highlight::after{
-    content: "★";
-    position:absolute; right:12px; top:50%; transform:translateY(-50%);
-    font-size:14px; opacity:.9;
+  @keyframes bannerPulse {
+    0%{ box-shadow:0 2px 10px rgba(0,0,0,.15); }
+    50%{ box-shadow:0 6px 24px rgba(182,124,75,.45); }
+    100%{ box-shadow:0 2px 10px rgba(0,0,0,.15); }
   }
-  @keyframes ctaPulse {
-    0%   { box-shadow: 0 1px 0 rgba(0,0,0,.12), 0 6px 16px rgba(0,0,0,.12); transform: translateY(0); }
-    50%  { box-shadow: 0 6px 24px rgba(182,124,75,.45); transform: translateY(-1px); }
-    100% { box-shadow: 0 1px 0 rgba(0,0,0,.12), 0 6px 16px rgba(0,0,0,.12); transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .cta-highlight{ animation: none; }
-  }
+  @media (prefers-reduced-motion: reduce){ #now-open-banner{ animation:none; } }
+  .flash-text{ font-weight:700; }
 </style>
-
 </head>
 <body>
-
-<!-- NOW OPEN Banner -->
-<div id="now-open-banner" role="status" aria-live="polite">
-  OPENING SOON! SIGN UP FOR OUR MENU TASTING EVENT!<button id="close-banner" aria-label="Dismiss banner">&times;</button>
-</div>
-<style>
-  #now-open-banner{
-    position: sticky; /* sticks to top while scrolling */
-    top: 0;
-    z-index: 9999;
-    width:100%;
-    box-sizing:border-box;
-    padding:.75rem 3rem .75rem 1rem;
-    background: linear-gradient(90deg, var(--brand) 0%, #b67c4b 60%, #e2b07a 100%);
-    color: #fff;
-    text-align:center;
-    font-weight:700;
-    letter-spacing:.3px;
-    border-bottom:1px solid rgba(0,0,0,.15);
-    box-shadow: 0 2px 10px rgba(0,0,0,.15);
-    animation: bannerPulse 2.6s ease-in-out infinite;
-    backdrop-filter: saturate(1.1);
-  }
-  #now-open-banner .emoji{ margin-right:.5rem; filter:drop-shadow(0 1px 0 rgba(0,0,0,.2)); }
-  #now-open-banner .dot{ opacity:.85; margin:0 .4rem; }
-  #now-open-banner #close-banner{
-    position:absolute; right:.65rem; top:.35rem;
-    width:32px; height:32px; border-radius:50%; border:0; background:rgba(255,255,255,.15);
-    color:#fff; font-size:20px; line-height:32px; cursor:pointer;
-    transition: background .2s ease, transform .08s ease;
-  }
-  #now-open-banner #close-banner:hover{ background:rgba(255,255,255,.25); transform: scale(1.05); }
-
-  @keyframes bannerPulse {
-    0%   { box-shadow: 0 2px 10px rgba(0,0,0,.15); }
-    40%  { box-shadow: 0 4px 18px rgba(182,124,75,.35); }
-    60%  { box-shadow: 0 6px 24px rgba(182,124,75,.5); }
-    100% { box-shadow: 0 2px 10px rgba(0,0,0,.15); }
-  }
-
-  /* Respect reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    #now-open-banner{ animation: none; }
-  }
-</style>
-
-<script>
-  (function(){
-    const closeBtn = document.getElementById('close-banner');
-    const bar = document.getElementById('now-open-banner');
-    if(closeBtn && bar){
-      closeBtn.addEventListener('click', ()=>{ bar.remove(); });
-    }
-  })();
-</script>
-
+  <!-- Static flashing banner -->
+  <div id="now-open-banner">
+    <span class="flash-text">OPENING AUGUST 14th! Visit us at 436 Richards Street, Vancouver.</span>
+  </div>
 
   <div class="container">
     <!-- Header -->
@@ -192,213 +111,43 @@
     <!-- Socials -->
     <h2>Follow Us on Social Media</h2>
     <div class="icon-row">
-      <!-- Instagram -->
       <a class="circle-btn ig" href="https://www.instagram.com/khyber.chai/" target="_blank" aria-label="Instagram" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7m0-5c3.3 0 3.7.01 5 .07 1.3.06 2 .28 2.47.47.62.24 1.06.52 1.52.98.46.46.74.9.98 1.52.19.47.41 1.17.47 2.47.06 1.3.07 1.7.07 5s-.01 3.7-.07 5c-.06 1.3-.28 2-.47 2.47a4.5 4.5 0 0 1-.98 1.52 4.5 4.5 0 0 1-1.52.98c-.47.19-1.17.41-2.47.47-1.3.06-1.7.07-5 .07s-3.7-.01-5-.07c-1.3-.06-2-.28-2.47-.47a4.5 4.5 0 0 1-1.52-.98 4.5 4.5 0 0 1-.98-1.52c-.19-.47-.41-1.17-.47-2.47C2.01 15.7 2 15.3 2 12s.01-3.7.07-5c.06-1.3.28-2 .47-2.47.24-.62.52-1.06.98-1.52.46-.46.9-.74 1.52-.98.47-.19 1.17-.41 2.47-.47C8.3 2.01 8.7 2 12 2Zm5.5 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg>
       </a>
-      <!-- Facebook -->
       <a class="circle-btn fb" href="https://www.facebook.com/profile.php?id=61575313397046" target="_blank" aria-label="Facebook" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32V22.7c0 .73.59 1.33 1.32 1.33h11.5v-9.84H9.69V10.4h3.13V8.08c0-3.1 1.9-4.79 4.66-4.79 1.33 0 2.47.1 2.8.14v3.24h-1.92c-1.5 0-1.8.71-1.8 1.76v2.31h3.59l-.47 3.74h-3.12V24h6.13c.73 0 1.32-.6 1.32-1.33V1.32C24 .59 23.41 0 22.68 0"/></svg>
       </a>
-      <!-- TikTok -->
       <a class="circle-btn tt" href="https://www.tiktok.com/@khyber.chai" target="_blank" aria-label="TikTok" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53 0h3.01c.26 2.04 1.11 3.66 2.56 4.87 1.45 1.21 3.25 1.87 5.41 1.97v3.22c-2.17-.05-4.15-.65-5.95-1.8v7.59c0 2.1-.73 3.84-2.18 5.23-1.45 1.38-3.2 2.07-5.25 2.07-2.25 0-4.14-.74-5.69-2.22C2.89 19.43 2.2 17.58 2.2 15.42c0-2.16.69-4 2.08-5.54C5.66 8.35 7.56 7.6 9.8 7.6c.8 0 1.57.1 2.29.31v3.34c-.45-.1-.92-.15-1.37-.15-1.34 0-2.45.45-3.32 1.36-.87.91-1.3 2.03-1.3 3.35 0 1.32.43 2.44 1.3 3.34.87.91 1.98 1.36 3.32 1.36 1.28 0 2.35-.37 3.2-1.11.86-.74 1.32-1.7 1.4-2.87V0Z"/></svg>
       </a>
     </div>
 
-<!-- Main action buttons that toggle embedded sections -->
-    <a href="#" class="link-button" data-toggle="menu">View Menu</a>
-<div id="mount-menu"></div>
-    <a href="#" class="link-button" data-toggle="inquiry">Catering Inquiry</a>
-<div id="mount-inquiry"></div>
-    <a href="#" class="link-button" data-toggle="map">Map & Hours</a>
-<div id="mount-map"></div>
+    <!-- Primary nav buttons -->
+    <a href="#" class="link-button" data-toggle="menu">View Menu</a><div id="mount-menu"></div>
+    <a href="#" class="link-button" data-toggle="inquiry">Catering Inquiry</a><div id="mount-inquiry"></div>
+    <a href="#" class="link-button" data-toggle="map">Map & Hours</a><div id="mount-map"></div>
 
-    <!-- Order Online -->
-    <h2>Order Online</h2>
-    <div class="icon-row">
-      <!-- Each icon with a small label below -->
-      <div class="app">
-        <a class="circle-btn ue order" href="#" aria-label="Uber Eats" rel="noopener"
-           data-app-url="uber-eats://orders"
-           data-web-url="https://www.ubereats.com/ca/store/REPLACE-ME">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7V6a5 5 0 0 1 10 0v1h2a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h2Zm2 0h6V6a3 3 0 0 0-6 0v1Z"/></svg>
-        </a>
-        <div class="label">Uber&nbsp;Eats</div>
-      </div>
-
-
-
-      <div class="app">
-        <a class="circle-btn dd order" href="#" aria-label="DoorDash" rel="noopener"
-           data-app-url="doordash://"
-           data-web-url="https://www.doordash.com/store/khyber-chai-house">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 5.5c-1.3-1.3-3.2-1.9-5.2-1.9H0l3.6 3.6h14.7c.8 0 1.5.3 2 .8.5.5.8 1.1.8 1.8 0 1.4-1.3 2.6-2.8 2.6H7.1l3.6 3.5h7.7c2.7 0 4.9-2.1 4.9-4.7 0-1.8-.7-3.4-2-4.7Z"/></svg>
-        </a>
-        <div class="label">DoorDash</div>
-      </div>
-      <div class="app">
-        <a class="circle-btn rt order" href="#" aria-label="Ritual" rel="noopener"
-           data-app-url="ritual://"
-           data-web-url="https://ritual.co/khyberchai">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h9a6 6 0 0 1 0 12H9l7 6h-4L7 15H6v6H4V3Zm5 2v8h4a4 4 0 0 0 0-8H9Z"/></svg>
-        </a>
-        <div class="label">Ritual</div>
-      </div>
-      <div class="app">
-        <a class="circle-btn sk order" href="#" aria-label="SkipTheDishes" rel="noopener"
-           data-app-url="skiptheapp://"
-           data-web-url="https://www.skipthedishes.com/REPLACE-ME">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11l-1 3H6l-.6 2H13l-1 3H4.4L3 18H0L2 6Zm12 0h10l-1 3h-6l-.4 2H21l-1 3h-5.6L13 18h-3l4-12Z"/></svg>
-        </a>
-        <div class="label">SkipTheDishes</div>
-      </div>
-      <div class="app">
-        <a class="circle-btn ft order" href="#" aria-label="Fantuan" rel="noopener"
-           data-app-url="fantuan://"
-           data-web-url="https://order.fantuan.ca/store/REPLACE-ME">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v4H8v3h10v4H8v7H3V3Z"/></svg>
-        </a>
-        <div class="label">Fantuan</div>
+    <!-- Menu (embedded) -->
+    <div id="section-menu" class="section-wrap" aria-hidden="true">
+      <div class="card">
+        <div id="menuGrid" class="grid"></div>
       </div>
     </div>
-
-<!-- Menu Tasting Event Sign Up (Button + Embedded Form) -->
-<div id="menu-tasting-cta" style="margin:1.25rem 0 .75rem;">
-  <a href="#" class="link-button cta-highlight" data-toggle="signup" aria-controls="menuTastingFormSection" aria-expanded="false">
-    Menu Tasting Event Sign Up
-  </a>
-<div id="mount-signup"></div>
-</div>
-
-<section id="menuTastingFormSection" class="card" style="display:none; max-width:720px; margin:0 auto 1.25rem;" aria-hidden="true">
-  <h3 style="margin:.2rem 0 .6rem; font-size:1.05rem; letter-spacing:.3px; border-bottom:1px dashed rgba(241,227,219,.35); padding-bottom:.35rem;">
-    Menu Tasting Event Sign Up
-  </h3>
-  <form action="https://formsubmit.co/inquiry@khyberchai.com" method="POST" class="form-grid">
-    <!-- FormSubmit options -->
-    <input type="hidden" name="_subject" value="Menu Tasting Event Sign Up">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://khyberchai.com/thank-you.html">
-    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-    <input type="text" name="name" placeholder="Your name*" required>
-    <input type="email" name="email" placeholder="Email address*" required>
-    <input type="text" name="social" placeholder="Social media links (Instagram, TikTok, etc.)" class="full">
-    <select name="people" class="guests" required title="Number of people">
-      <option value="" disabled selected>Number of People</option>
-      <option>1</option><option>2</option><option>3</option><option>4</option>
-    </select>
-    <select name="time" required title="Preferred time slot">
-      <option value="" disabled selected>Preferred Time Slot</option>
-      <option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option>
-      <option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option>
-    </select>
-
-    <button class="btn full" type="submit">Submit</button>
-  </form>
-</section>
-
-
-
-<!-- Menu (embedded) -->
-    
-<div id="section-menu" class="section-wrap" aria-hidden="true">
-  <div class="card">
-    <div id="menuGrid" class="grid"></div>
-  </div>
-</div>
-
-<script>
-const menuData = [
-  { title: "HOT DRINKS", items: [
-    ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
-    ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"], ["Hot Chocolate", "3.99"]
-  ]},
-  { title: "ESPRESSO BAR", items: [
-    ["Espresso", "3.99"], ["Americano", "3.99"], ["Cappuccino", "3.99"],
-    ["Latte", "3.99"], ["Flat White", "3.99"], ["Macchiato", "3.99"]
-  ]},
-  { title: "COLD DRINKS", items: [
-    ["Iced Karak Chai", "3.99"], ["Iced Kashmiri Chai", "3.99"], ["Mint Lemonade", "3.99"],
-    ["Mango Lassi", "3.99"], ["Sweet Lassi", "3.99"], ["Salted Lassi", "3.99"],
-    ["Jarritos", "3.99"], ["Water", "3.99"]
-  ]},
-  { title: "MILKSHAKES", items: [
-    ["Rooh Afza Milkshake", "3.99"], ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"],
-    ["Chocolate Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], ["KitKat Milkshake", "3.99"]
-  ]},
-  { title: "ROLLS", items: [
-    ["Bihari Beef", "3.99"], ["Chicken Tikka", "3.99"], ["Tandoori Chicken", "3.99"],
-    ["Crispy Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Aloo Tikki", "3.99"]
-  ]},
-  { title: "BOWLS", items: [
-    ["Butter Chicken", "3.99"], ["Paneer Makhni", "3.99"], ["Chana Masala", "3.99"],
-    ["Tandoori Chicken", "3.99"], ["Chicken Tikka", "3.99"], ["Seekh Kabab", "3.99"]
-  ]},
-  { title: "STREET BITES", items: [
-    ["Anday Wala Burger", "3.99"], ["Afghani Burger", "3.99"], ["Chicken Burger", "3.99"],
-    ["Veggie Burger", "3.99"], ["Bolani", "3.99"], ["Samosa Plate", "3.99"],
-    ["Samosa Chaat", "3.99"], ["Channa Chaat", "3.99"]
-  ]},
-  { title: "DUMPLINGS & SIDES", items: [
-    ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Paneer Momo", "3.99"],
-    ["Fries", "3.99"], ["Samosa", "3.99"], ["Rice", "3.99"],
-    ["Naan", "3.99"], ["Paratha", "3.99"]
-  ]},
-  { title: "PARATHAS", items: [
-    ["Cheese Paratha", "3.99"], ["Aloo Paratha", "3.99"], ["Chicken Paratha", "3.99"],
-    ["Qeema Paratha", "3.99"], ["Nutella Paratha", "3.99"]
-  ]},
-  { title: "DESSERT", items: [
-    ["Carrot Cake", "3.99"], ["Nanaimo Bar", "3.99"], ["Tiramisu", "3.99"],
-    ["Blueberry Cupcake", "3.99"], ["Chocolate Chip Cookie", "3.99"]
-  ]}
-];
-
-(function renderMenu(){
-  const grid = document.getElementById('menuGrid');
-  if(!grid) return;
-  grid.innerHTML = '';
-  menuData.forEach(section => {
-    const col = document.createElement('div');
-    const h3 = document.createElement('h3');
-    h3.textContent = section.title;
-    col.appendChild(h3);
-    section.items.forEach(([name, price]) => {
-      if(!name) return;
-      const row = document.createElement('div');
-      row.className = 'item';
-      const left = document.createElement('span');
-      left.textContent = name;
-      const right = document.createElement('span');
-      right.className = 'price';
-      right.textContent = price;
-      row.appendChild(left);
-      row.appendChild(right);
-      col.appendChild(row);
-    });
-    grid.appendChild(col);
-  });
-})();
-</script>
-
-</div>
 
     <!-- Inquiry (embedded) -->
     <div id="section-inquiry" class="section-wrap" aria-hidden="true">
       <div class="card">
         <h3>Catering Inquiry</h3>
-        <form class="form-grid" action="https://formsubmit.co/khyberchaihouse@gmail.com" method="POST">
+        <form class="form-grid" action="https://formsubmit.co/inquiry@khyberchai.com" method="POST">
           <input type="hidden" name="_subject" value="New Catering Inquiry - Khyber Chai House">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="./thank-you.html">
           <input type="text" name="_honey" style="display:none">
 
           <input type="text" name="Name" placeholder="Your name" required>
           <input type="email" name="Email" placeholder="Email" required>
-          <input type="tel" name="Phone" placeholder="Phone" class="full">
+          <input type="tel" name="Phone" placeholder="Phone" class="full" required>
           <input type="date" name="Event Date">
           <select name="Guests" class="guests" title="Number of guests">
             <option value="" disabled selected>Guests (tap to choose)</option>
@@ -437,34 +186,20 @@ const menuData = [
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  
-<script>
-  (function(){
+  <script>
     // Sections and mounts
     const sections = {
       menu: document.getElementById('section-menu'),
       inquiry: document.getElementById('section-inquiry'),
-      map: document.getElementById('section-map'),
-      signup: document.getElementById('menuTastingFormSection')
+      map: document.getElementById('section-map')
     };
     const mounts = {
       menu: document.getElementById('mount-menu'),
       inquiry: document.getElementById('mount-inquiry'),
-      map: document.getElementById('mount-map'),
-      signup: document.getElementById('mount-signup')
+      map: document.getElementById('mount-map')
     };
 
-    // One-time Leaflet map init
-    let mapInited = false;
-    function initMap(){
-      if(mapInited) return; mapInited = true;
-      const lat = 49.28370, lng = -123.11214;
-      const map = L.map('map').setView([lat, lng], 17);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
-      L.marker([lat, lng]).addTo(map).bindPopup('Khyber Chai House<br>436 Richards St, Vancouver, BC');
-    }
-
-    // Open/close with animation and relocate panel under its heading button
+    // Toggle handler: open panel under its button, one at a time, slide/fade animation
     function openSection(key){
       // hide all
       Object.entries(sections).forEach(([k,el])=>{
@@ -474,7 +209,6 @@ const menuData = [
         el.style.opacity = ''; el.style.height = ''; el.style.transition = ''; el.style.overflow='';
       });
 
-      // update toggles aria-expanded
       document.querySelectorAll('[data-toggle]').forEach(btn=>{
         const target = btn.getAttribute('data-toggle');
         btn.setAttribute('aria-expanded', target === key ? 'true' : 'false');
@@ -482,14 +216,12 @@ const menuData = [
 
       if(!key || !sections[key]) return;
 
-      // move panel to its mount (ensures position under heading)
       const panel = sections[key];
       const mount = mounts[key];
       if (panel && mount && panel.previousElementSibling !== mount) {
         mount.insertAdjacentElement('afterend', panel);
       }
 
-      // animate open
       panel.style.display = 'block';
       panel.setAttribute('aria-hidden','false');
       panel.style.overflow = 'hidden';
@@ -513,19 +245,18 @@ const menuData = [
       if(key==='map') setTimeout(initMap, 60);
     }
 
-    // Hook up toggles (open one at a time)
+    // Click bindings
     document.querySelectorAll('[data-toggle]').forEach(btn=>{
       btn.addEventListener('click', function(e){
         e.preventDefault();
         const key = btn.getAttribute('data-toggle');
         const isOpen = sections[key] && sections[key].style.display === 'block';
         openSection(isOpen ? '' : key);
-        // scroll the button into view (esp. on mobile)
         btn.scrollIntoView({behavior:'smooth', block:'start'});
       });
     });
 
-    // Deep-link handlers for ordering apps: try app scheme, then fall back to web
+    // Ordering app deep-link handler (kept from earlier)
     document.querySelectorAll('.order').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -543,7 +274,88 @@ const menuData = [
       });
     });
 
-    // LAUNCH WEEK: auto-open the sign-up panel once on load
-    openSection('signup');
-  })();
-</script>
+    // Leaflet map
+    let mapInited = false;
+    function initMap(){
+      if(mapInited) return; mapInited = true;
+      const lat = 49.28370, lng = -123.11214;
+      const map = L.map('map').setView([lat, lng], 17);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
+      L.marker([lat, lng]).addTo(map).bindPopup('Khyber Chai House<br>436 Richards St, Vancouver, BC');
+    }
+
+    /* ======== MENU DATA (edit here later) ======== */
+    const menuData = [
+      { title: "HOT DRINKS", items: [
+        ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
+        ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"], ["Hot Chocolate", "3.99"]
+      ]},
+      { title: "ESPRESSO BAR", items: [
+        ["Espresso", "3.99"], ["Americano", "3.99"], ["Cappuccino", "3.99"],
+        ["Latte", "3.99"], ["Flat White", "3.99"], ["Macchiato", "3.99"]
+      ]},
+      { title: "COLD DRINKS", items: [
+        ["Iced Karak Chai", "3.99"], ["Iced Kashmiri Chai", "3.99"], ["Mint Lemonade", "3.99"],
+        ["Mango Lassi", "3.99"], ["Sweet Lassi", "3.99"], ["Salted Lassi", "3.99"],
+        ["Jarritos", "3.99"], ["Water", "3.99"]
+      ]},
+      { title: "MILKSHAKES", items: [
+        ["Rooh Afza Milkshake", "3.99"], ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"],
+        ["Chocolate Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], ["KitKat Milkshake", "3.99"]
+      ]},
+      { title: "ROLLS", items: [
+        ["Bihari Beef", "3.99"], ["Chicken Tikka", "3.99"], ["Tandoori Chicken", "3.99"],
+        ["Crispy Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Aloo Tikki", "3.99"]
+      ]},
+      { title: "BOWLS", items: [
+        ["Butter Chicken", "3.99"], ["Paneer Makhni", "3.99"], ["Chana Masala", "3.99"],
+        ["Tandoori Chicken", "3.99"], ["Chicken Tikka", "3.99"], ["Seekh Kabab", "3.99"]
+      ]},
+      { title: "STREET BITES", items: [
+        ["Anday Wala Burger", "3.99"], ["Afghani Burger", "3.99"], ["Chicken Burger", "3.99"],
+        ["Veggie Burger", "3.99"], ["Bolani", "3.99"], ["Samosa Plate", "3.99"],
+        ["Samosa Chaat", "3.99"], ["Channa Chaat", "3.99"]
+      ]},
+      { title: "DUMPLINGS & SIDES", items: [
+        ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Paneer Momo", "3.99"],
+        ["Fries", "3.99"], ["Samosa", "3.99"], ["Rice", "3.99"],
+        ["Naan", "3.99"], ["Paratha", "3.99"]
+      ]},
+      { title: "PARATHAS", items: [
+        ["Cheese Paratha", "3.99"], ["Aloo Paratha", "3.99"], ["Chicken Paratha", "3.99"],
+        ["Qeema Paratha", "3.99"], ["Nutella Paratha", "3.99"]
+      ]},
+      { title: "DESSERT", items: [
+        ["Carrot Cake", "3.99"], ["Nanaimo Bar", "3.99"], ["Tiramisu", "3.99"],
+        ["Blueberry Cupcake", "3.99"], ["Chocolate Chip Cookie", "3.99"]
+      ]}
+    ];
+
+    (function renderMenu(){
+      const grid = document.getElementById('menuGrid');
+      if(!grid) return;
+      grid.innerHTML = '';
+      menuData.forEach(section => {
+        const col = document.createElement('div');
+        const h3 = document.createElement('h3');
+        h3.textContent = section.title;
+        col.appendChild(h3);
+        section.items.forEach(([name, price]) => {
+          if(!name) return;
+          const row = document.createElement('div');
+          row.className = 'item';
+          const left = document.createElement('span');
+          left.textContent = name;
+          const right = document.createElement('span');
+          right.className = 'price';
+          right.textContent = price;
+          row.appendChild(left);
+          row.appendChild(right);
+          col.appendChild(row);
+        });
+        grid.appendChild(col);
+      });
+    })();
+  </script>
+</body>
+</html>
