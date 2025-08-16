@@ -286,76 +286,72 @@
 
     /* ======== MENU DATA (edit here later) ======== */
     const menuData = [
-      { title: "HOT DRINKS", items: [
-        ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
-        ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"], ["Hot Chocolate", "3.99"]
-      ]},
-      { title: "ESPRESSO BAR", items: [
-        ["Espresso", "3.99"], ["Americano", "3.99"], ["Cappuccino", "3.99"],
-        ["Latte", "3.99"], ["Flat White", "3.99"], ["Macchiato", "3.99"]
-      ]},
-      { title: "COLD DRINKS", items: [
-        ["Iced Karak Chai", "3.99"], ["Iced Kashmiri Chai", "3.99"], ["Mint Lemonade", "3.99"],
-        ["Mango Lassi", "3.99"], ["Sweet Lassi", "3.99"], ["Salted Lassi", "3.99"],
-        ["Jarritos", "3.99"], ["Water", "3.99"]
-      ]},
-      { title: "MILKSHAKES", items: [
-        ["Rooh Afza Milkshake", "3.99"], ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"],
-        ["Chocolate Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], ["KitKat Milkshake", "3.99"]
-      ]},
-      { title: "ROLLS", items: [
-        ["Bihari Beef", "3.99"], ["Chicken Tikka", "3.99"], ["Tandoori Chicken", "3.99"],
-        ["Crispy Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Aloo Tikki", "3.99"]
-      ]},
-      { title: "BOWLS", items: [
-        ["Butter Chicken", "3.99"], ["Paneer Makhni", "3.99"], ["Chana Masala", "3.99"],
-        ["Tandoori Chicken", "3.99"], ["Chicken Tikka", "3.99"], ["Seekh Kabab", "3.99"]
-      ]},
-      { title: "STREET BITES", items: [
-        ["Anday Wala Burger", "3.99"], ["Afghani Burger", "3.99"], ["Chicken Burger", "3.99"],
-        ["Veggie Burger", "3.99"], ["Bolani", "3.99"], ["Samosa Plate", "3.99"],
-        ["Samosa Chaat", "3.99"], ["Channa Chaat", "3.99"]
-      ]},
-      { title: "DUMPLINGS & SIDES", items: [
-        ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Paneer Momo", "3.99"],
-        ["Fries", "3.99"], ["Samosa", "3.99"], ["Rice", "3.99"],
-        ["Naan", "3.99"], ["Paratha", "3.99"]
-      ]},
-      { title: "PARATHAS", items: [
-        ["Cheese Paratha", "3.99"], ["Aloo Paratha", "3.99"], ["Chicken Paratha", "3.99"],
-        ["Qeema Paratha", "3.99"], ["Nutella Paratha", "3.99"]
-      ]},
-      { title: "DESSERT", items: [
-        ["Carrot Cake", "3.99"], ["Nanaimo Bar", "3.99"], ["Tiramisu", "3.99"],
-        ["Blueberry Cupcake", "3.99"], ["Chocolate Chip Cookie", "3.99"]
-      ]}
-    ];
+    { title: "HOT DRINKS", items: [
+      ["Special Khyber Chai"], ["Karak Chai"], ["Peshawari Qehwa"],
+      ["Kashmiri Chai"], ["Masala Chai"], ["Hot Chocolate"]
+    ]},
+    { title: "ESPRESSO BAR", items: [
+      ["Espresso"], ["Americano"], ["Cappuccino"],
+      ["Latte"], ["Flat White"], ["Macchiato"]
+    ]},
+    { title: "COLD DRINKS", items: [
+      ["Iced Karak Chai"], ["Iced Kashmiri Chai"], ["Mint Lemonade"],
+      ["Mango Lassi"], ["Sweet Lassi"], ["Salted Lassi"],
+      ["Jarritos"], ["Water"]
+    ]},
+    { title: "MILKSHAKES", items: [
+      ["Rooh Afza Milkshake"], ["Mango Milkshake"], ["Strawberry Milkshake"],
+      ["Chocolate Milkshake"], ["Ferrero Milkshake"], ["KitKat Milkshake"]
+    ]},
+    { title: "ROLLS", items: [
+      ["Bihari Beef"], ["Chicken Tikka"], ["Tandoori Chicken"],
+      ["Crispy Chicken"], ["Seekh Kabab"], ["Aloo Tikki"]
+    ]},
+    { title: "BOWLS", items: [
+      ["Butter Chicken"], ["Paneer Makhni"], ["Chana Masala"],
+      ["Tandoori Chicken"], ["Chicken Tikka"], ["Seekh Kabab"]
+    ]},
+    { title: "STREET BITES", items: [
+      ["Anday Wala Burger"], ["Afghani Burger"], ["Chicken Burger"],
+      ["Veggie Burger"], ["Bolani"], ["Samosa Plate"],
+      ["Samosa Chaat"], ["Channa Chaat"]
+    ]},
+    { title: "DUMPLINGS & SIDES", items: [
+      ["Beef Mantu"], ["Chicken Momo"], ["Paneer Momo"],
+      ["Fries"], ["Samosa"], ["Rice"],
+      ["Naan"], ["Paratha"]
+    ]},
+    { title: "PARATHAS", items: [
+      ["Cheese Paratha"], ["Aloo Paratha"], ["Chicken Paratha"],
+      ["Qeema Paratha"], ["Nutella Paratha"]
+    ]},
+    { title: "DESSERT", items: [
+      ["Carrot Cake"], ["Nanaimo Bar"], ["Tiramisu"],
+      ["Blueberry Cupcake"], ["Chocolate Chip Cookie"]
+    ]}
+  ];
 
-    (function renderMenu(){
-      const grid = document.getElementById('menuGrid');
-      if(!grid) return;
-      grid.innerHTML = '';
-      menuData.forEach(section => {
-        const col = document.createElement('div');
-        const h3 = document.createElement('h3');
-        h3.textContent = section.title;
-        col.appendChild(h3);
-        section.items.forEach(([name, price]) => {
-          if(!name) return;
-          const row = document.createElement('div');
-          row.className = 'item';
-          const left = document.createElement('span');
-          left.textContent = name;
-          const right = document.createElement('span');
-          right.className = 'price';
-          right.textContent = price;
-          row.appendChild(left);
-          row.appendChild(right);
-          col.appendChild(row);
-        });
-        grid.appendChild(col);
+  (function renderMenu(){
+    const grid = document.getElementById('menuGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    menuData.forEach(section => {
+      const col = document.createElement('div');
+      const h3 = document.createElement('h3');
+      h3.textContent = section.title;
+      col.appendChild(h3);
+      section.items.forEach(([name]) => {
+        if(!name) return;
+        const row = document.createElement('div');
+        row.className = 'item';
+        const left = document.createElement('span');
+        left.textContent = name;
+        row.appendChild(left);
+        col.appendChild(row);
       });
-    })();
+      grid.appendChild(col);
+    });
+  })();
   </script>
 </body>
 </html>
