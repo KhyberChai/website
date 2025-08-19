@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Khyber Chai House — Links</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.Pacss" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
   :root{
     --brand:#943c2c; --light:#fcf5ec; --light2:#f1e3db; --ink:#111;
@@ -294,6 +294,14 @@
 
   /* ======== MENU DATA (easy to update) ======== */
   const menuData = [
+    { title: "CHAI", items: [
+      ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
+      ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"],
+    ]},
+    { title: "ESPRESSO BAR", items: [
+      ["Americano", "3.99"], ["Cappuccino", "3.99"], ["Latte", "3.99"], 
+      ["Flat White", "3.99"], ["Macchiato", "3.99"]
+    ]},
     { title: "ROLLS", items: [
       ["Beef", "3.99"], ["Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Paneer Tikki", "3.99"],
       ["Aloo Tikki", "3.99"]
@@ -310,31 +318,22 @@
     { title: "DUMPLINGS & SIDES", items: [
       ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Veggie Momo", "3.99"],
       ["Chicken Nuggets", "3.99"], ["Fries", "3.99"], ["Samosa", "3.99"], 
-    ]},
+    ]},      
     { title: "PARATHAS", items: [
       ["Classic Paratha", "3.99"], ["Cheese Paratha", "3.99"], ["Chicken Paratha", "3.99"], 
       ["Nutella Paratha", "3.99"]
     ]},
-    { title: "CHAI", items: [
-      ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
-      ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"],
-    ]},
-    { title: "ESPRESSO BAR", items: [
-      ["Americano", "3.99"], ["Cappuccino", "3.99"], ["Latte", "3.99"], 
-      ["Flat White", "3.99"], ["Macchiato", "3.99"]
+        { title: "DESSERT", items: [
+      ["Slice of the Day", "3.99"], ["Nanaimo Bar", "3.99"], ["Cinammon Roll", "3.99"], 
+      ["Chocolate Chip Cookie", "3.99"]
     ]},
     { title: "COLD DRINKS", items: [
       ["Peshawari Lemonade", "3.99"], ["Mango Lassi", "3.99"], ["Kandahari Lassi", "3.99"],
       ["Jarritos", "3.99"], ["Water", "3.99"]
     ]},
     { title: "MILKSHAKES", items: [
-      ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"],
-      ["Chocolate Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], ["KitKat Milkshake", "3.99"],
-      ["Bueno Milkshake", "3.99"]
-    ]},
-        { title: "DESSERT", items: [
-      ["Slice of the Day", "3.99"], ["Nanaimo Bar", "3.99"], ["Cinammon Roll", "3.99"], 
-      ["Chocolate Chip Cookie", "3.99"]
+      ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], 
+      ["KitKat Milkshake", "3.99"], ["Bueno Milkshake", "3.99"]
     ]}
   ];
 
