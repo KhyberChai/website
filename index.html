@@ -167,27 +167,43 @@
     </div>
 
     <!-- Map & Hours (embedded) -->
-    <div id="section-map" class="section-wrap" aria-hidden="true">
-      <div class="card">
-        <h3>Find Us</h3>
-        <div id="map"></div>
-        <a class="link-button" style="text-align:center; margin-top:.75rem" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+House%2C+436+Richards+St%2C+Vancouver%2C+BC">
-          Open in Google Maps
-        </a>
-
-<h3 style="margin-top:1rem">Hours</h3>
-<div class="grid" style="grid-template-columns:1fr 1fr;">
-  <div>Sun</div><div>11 AM – Midnight</div>
-  <div>Mon</div><div>11 AM – Midnight</div>
-  <div>Tue</div><div>11 AM – Midnight</div>
-  <div>Wed</div><div>11 AM – Midnight</div>
-  <div>Thu</div><div>11 AM – Midnight</div>
-  <div>Fri</div><div>11 AM – 01 AM</div>
-  <div>Sat</div><div>11 AM – 01 AM</div>
-        </div>
-      </div>
+<div id="section-map" class="section-wrap" aria-hidden="true">
+  <div class="card">
+    <h3>Find Us</h3>
+    <div class="map-embed">
+      <iframe
+        title="Khyber Chai House map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Khyber+Chai+House,+436+Richards+St,+Vancouver,+BC&output=embed">
+      </iframe>
     </div>
+    <a class="link-button" style="text-align:center; margin-top:.75rem" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+House%2C+436+Richards+St%2C+Vancouver%2C+BC">
+      Open in Google Maps
+    </a>
+
+    <h3 style="margin-top:1rem">Hours</h3>
+    <div class="grid" style="grid-template-columns:1fr 1fr;">
+      <div>Sun</div><div>11 AM – Midnight</div>
+      <div>Mon</div><div>11 AM – Midnight</div>
+      <div>Tue</div><div>11 AM – Midnight</div>
+      <div>Wed</div><div>11 AM – Midnight</div>
+      <div>Thu</div><div>11 AM – Midnight</div>
+      <div>Fri</div><div>11 AM – 01 AM</div>
+      <div>Sat</div><div>11 AM – 01 AM</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .map-embed iframe {
+    width: 100%;
+    height: 340px;
+    border: 0;
+    border-radius: 10px;
+  }
+</style>
 
     <div class="footer">Scan the QR or tap NFC at your table for instant access.</div>
   </div>
