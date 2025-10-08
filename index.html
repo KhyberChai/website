@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Khyber Chai House — Links</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- FIXED: leaflet css filename -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.Pacss" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
   :root{
     --brand:#943c2c; --light:#fcf5ec; --light2:#f1e3db; --ink:#111;
@@ -98,40 +94,26 @@
   }
   @media (prefers-reduced-motion: reduce){ #now-open-banner{ animation:none; } }
   .flash-text{ font-weight:700; }
+</style>
 
-  /* === Promo modal (added) === */
-  .modal-backdrop{
-    position:fixed; inset:0; background:rgba(0,0,0,.7);
-    display:none; align-items:center; justify-content:center; z-index:99999;
-    padding:clamp(10px, 3vw, 28px);
+<!-- === Popup styles (added) === -->
+<style>
+  .kch-modal-backdrop{
+    position:fixed; inset:0; display:none;
+    align-items:center; justify-content:center;
+    background:rgba(0,0,0,.7); z-index:99999;
+    padding:clamp(10px,3vw,28px);
   }
-  .modal{
-    width:min(680px, 96vw); background:#fff; color:#111; border-radius:14px;
+  .kch-modal{
+    width:min(680px,96vw); background:#fff; color:#111; border-radius:14px;
     box-shadow:0 12px 40px rgba(0,0,0,.4); overflow:hidden; position:relative;
   }
-  .modal img{ display:block; width:100%; height:auto; }
-  .modal .close{
+  .kch-modal img{ display:block; width:100%; height:auto; }
+  .kch-modal .kch-close{
     position:absolute; top:10px; right:10px; border:0; background:rgba(0,0,0,.55);
     color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:20px;
   }
-  .modal .cta-row{
-    display:flex; gap:8px; padding:10px; background:#faf7f2; border-top:1px solid #eee;
-  }
-  .modal .cta-row a{
-    flex:1; text-align:center; text-decoration:none; font-weight:700;
-    padding:.8rem 1rem; border-radius:10px;
-  }
-  .modal .cta-primary{ background:var(--brand); color:#fff; }
-  .modal .cta-secondary{ background:#fff; color:var(--brand); border:1px solid var(--brand); }
-  body.modal-open{ overflow:hidden; }
-
-  /* Map iframe sizing */
-  .map-embed iframe {
-    width: 100%;
-    height: 340px;
-    border: 0;
-    border-radius: 10px;
-  }
+  body.kch-modal-open{ overflow:hidden; }
 </style>
 </head>
 <body>
@@ -162,7 +144,11 @@
 
     <!-- Primary nav buttons -->
     <a href="https://search.google.com/local/writereview?placeid=ChIJUSS2bRBxhlQRrllHGRZrZ14" 
-       class="link-button" target="_blank" rel="noopener">Leave Us a Google Review</a>
+   class="link-button" 
+   target="_blank" 
+   rel="noopener">
+  Leave Us a Google Review
+</a>
     <a href="/order" class="link-button">Order Online</a>
     <a href="#" class="link-button" data-toggle="menu">View Menu</a><div id="mount-menu"></div>
     <a href="#" class="link-button" data-toggle="inquiry">Catering Inquiry</a><div id="mount-inquiry"></div>
@@ -170,7 +156,9 @@
 
     <!-- Menu (embedded) -->
     <div id="section-menu" class="section-wrap" aria-hidden="true">
-      <div class="card"><div id="menuGrid" class="grid"></div></div>
+      <div class="card">
+        <div id="menuGrid" class="grid"></div>
+      </div>
     </div>
 
     <!-- Inquiry (embedded) -->
@@ -183,6 +171,7 @@
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://links.khyberchai.com/thank-you.html">
           <input type="text" name="_honey" style="display:none">
+
           <input type="text" name="Name" placeholder="Your name" required>
           <input type="email" name="Email" placeholder="Email" required>
           <input type="tel" name="Phone" placeholder="Phone" class="full" required>
@@ -198,45 +187,50 @@
     </div>
 
     <!-- Map & Hours (embedded) -->
-    <div id="section-map" class="section-wrap" aria-hidden="true">
-      <div class="card">
-        <h3>Find Us</h3>
-        <div class="map-embed">
-          <iframe
-            title="Khyber Chai House map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Khyber+Chai+House,+436+Richards+St,+Vancouver,+BC&output=embed">
-          </iframe>
-        </div>
-        <a class="link-button" style="text-align:center; margin-top:.75rem" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+House%2C+436+Richards+St%2C+Vancouver%2C+BC">
-          Open in Google Maps
-        </a>
-
-        <h3 style="margin-top:1rem">Hours</h3>
-        <div class="grid" style="grid-template-columns:1fr 1fr;">
-          <div>Sun</div><div>11 AM – Midnight</div>
-          <div>Mon</div><div>11 AM – Midnight</div>
-          <div>Tue</div><div>11 AM – Midnight</div>
-          <div>Wed</div><div>11 AM – Midnight</div>
-          <div>Thu</div><div>11 AM – Midnight</div>
-          <div>Fri</div><div>11 AM – 01 AM</div>
-          <div>Sat</div><div>11 AM – 01 AM</div>
-        </div>
-      </div>
+<div id="section-map" class="section-wrap" aria-hidden="true">
+  <div class="card">
+    <h3>Find Us</h3>
+    <div class="map-embed">
+      <iframe
+        title="Khyber Chai House map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Khyber+Chai+House,+436+Richards+St,+Vancouver,+BC&output=embed">
+      </iframe>
     </div>
+    <a class="link-button" style="text-align:center; margin-top:.75rem" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+House%2C+436+Richards+St%2C+Vancouver%2C+BC">
+      Open in Google Maps
+    </a>
+
+    <h3 style="margin-top:1rem">Hours</h3>
+    <div class="grid" style="grid-template-columns:1fr 1fr;">
+      <div>Sun</div><div>11 AM – Midnight</div>
+      <div>Mon</div><div>11 AM – Midnight</div>
+      <div>Tue</div><div>11 AM – Midnight</div>
+      <div>Wed</div><div>11 AM – Midnight</div>
+      <div>Thu</div><div>11 AM – Midnight</div>
+      <div>Fri</div><div>11 AM – 01 AM</div>
+      <div>Sat</div><div>11 AM – 01 AM</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .map-embed iframe {
+    width: 100%;
+    height: 340px;
+    border: 0;
+    border-radius: 10px;
+  }
+</style>
 
     <div class="footer">Scan the QR or tap NFC at your table for instant access.</div>
   </div>
 
-  <!-- Leaflet JS (kept) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-          crossorigin=""></script>
-
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
-    // Sections and mounts (unchanged)
+    // Sections and mounts
     const sections = {
       menu: document.getElementById('section-menu'),
       inquiry: document.getElementById('section-inquiry'),
@@ -247,23 +241,30 @@
       inquiry: document.getElementById('mount-inquiry'),
       map: document.getElementById('mount-map')
     };
+
+    // Toggle handler: open panel under its button, one at a time, slide/fade animation
     function openSection(key){
+      // hide all
       Object.entries(sections).forEach(([k,el])=>{
         if(!el) return;
         el.style.display = 'none';
         el.setAttribute('aria-hidden','true');
         el.style.opacity = ''; el.style.height = ''; el.style.transition = ''; el.style.overflow='';
       });
+
       document.querySelectorAll('[data-toggle]').forEach(btn=>{
         const target = btn.getAttribute('data-toggle');
         btn.setAttribute('aria-expanded', target === key ? 'true' : 'false');
       });
+
       if(!key || !sections[key]) return;
+
       const panel = sections[key];
       const mount = mounts[key];
       if (panel && mount && panel.previousElementSibling !== mount) {
         mount.insertAdjacentElement('afterend', panel);
       }
+
       panel.style.display = 'block';
       panel.setAttribute('aria-hidden','false');
       panel.style.overflow = 'hidden';
@@ -283,8 +284,11 @@
           panel.removeEventListener('transitionend', tidy);
         }
       });
+
       if(key==='map') setTimeout(initMap, 60);
     }
+
+    // Click bindings
     document.querySelectorAll('[data-toggle]').forEach(btn=>{
       btn.addEventListener('click', function(e){
         e.preventDefault();
@@ -295,7 +299,7 @@
       });
     });
 
-    // Deep-link handler (unchanged)
+    // Ordering app deep-link handler (kept from earlier)
     document.querySelectorAll('.order').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -313,127 +317,113 @@
       });
     });
 
-    // Leaflet map (only runs if you open the Map section and if #map exists)
+    // Leaflet map
     let mapInited = false;
     function initMap(){
       if(mapInited) return; mapInited = true;
-      const mapEl = document.getElementById('map');
-      if(!mapEl) return; // guard in case using iframe instead
       const lat = 49.28370, lng = -123.11214;
       const map = L.map('map').setView([lat, lng], 17);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
       L.marker([lat, lng]).addTo(map).bindPopup('Khyber Chai House<br>436 Richards St, Vancouver, BC');
     }
+  /* Toggle to show/hide prices */
+  const showPrices = false; // change to true to show prices
 
-    /* ======== MENU DATA (unchanged) ======== */
-    const showPrices = false; 
-    const menuData = [
-      { title: "CHAI", items: [
-        ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
-        ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"],
-      ]},
-      { title: "ESPRESSO BAR", items: [
-        ["Americano", "3.99"], ["Cappuccino", "3.99"], ["Latte", "3.99"], 
-        ["Flat White", "3.99"], ["Macchiato", "3.99"]
-      ]},
-      { title: "ROLLS", items: [
-        ["Beef", "3.99"], ["Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Paneer Tikki", "3.99"],
-        ["Aloo Tikki", "3.99"]
-      ]},
-      { title: "BOWLS", items: [
-        ["Butter Chicken", "3.99"], ["Paneer Makhni", "3.99"],
-        ["Tandoori Chicken", "3.99"], ["Chicken Tikka", "3.99"], ["Seekh Kabab", "3.99"]
-      ]},
-      { title: "STREET BITES", items: [
-        ["Anday Wala Burger", "3.99"], ["Afghani Burger", "3.99"], ["Chicken Burger", "3.99"],
-        ["Veggie Burger", "3.99"], ["Samosa Chaat", "3.99"], ["Channa Chaat", "3.99"]
-      ]},
-      { title: "DUMPLINGS & SIDES", items: [
-        ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Veggie Momo", "3.99"],
-        ["Chicken Nuggets", "3.99"], ["Fries", "3.99"], ["Samosa", "3.99"], 
-      ]},      
-      { title: "PARATHAS", items: [
-        ["Classic Paratha", "3.99"], ["Cheese Paratha", "3.99"], ["Chicken Paratha", "3.99"], 
-        ["Nutella Paratha", "3.99"]
-      ]},
-      { title: "DESSERT", items: [
-        ["Slice of the Day", "3.99"], ["Nanaimo Bar", "3.99"], ["Cinammon Roll", "3.99"], 
-        ["Chocolate Chip Cookie", "3.99"]
-      ]},
-      { title: "COLD DRINKS", items: [
-        ["Peshawari Lemonade", "3.99"], ["Mango Lassi", "3.99"], ["Kandahari Lassi", "3.99"],
-        ["Jarritos", "3.99"], ["Water", "3.99"]
-      ]},
-      { title: "MILKSHAKES", items: [
-        ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], 
-        ["KitKat Milkshake", "3.99"], ["Bueno Milkshake", "3.99"]
-      ]}
-    ];
-    (function renderMenu(){
-      const grid = document.getElementById('menuGrid');
-      if(!grid) return;
-      grid.innerHTML = '';
-      menuData.forEach(section => {
-        const col = document.createElement('div');
-        const h3 = document.createElement('h3');
-        h3.textContent = section.title;
-        col.appendChild(h3);
-        section.items.forEach(([name, price]) => {
-          if(!name) return;
-          const row = document.createElement('div');
-          row.className = 'item';
-          const left = document.createElement('span');
-          left.textContent = name;
-          row.appendChild(left);
-          if (showPrices && price) {
-            const right = document.createElement('span');
-            right.className = 'price';
-            right.textContent = price;
-            row.appendChild(right);
-          }
-          col.appendChild(row);
-        });
-        grid.appendChild(col);
+  /* ======== MENU DATA (easy to update) ======== */
+  const menuData = [
+    { title: "CHAI", items: [
+      ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
+      ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"],
+    ]},
+    { title: "ESPRESSO BAR", items: [
+      ["Americano", "3.99"], ["Cappuccino", "3.99"], ["Latte", "3.99"], 
+      ["Flat White", "3.99"], ["Macchiato", "3.99"]
+    ]},
+    { title: "ROLLS", items: [
+      ["Beef", "3.99"], ["Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Paneer Tikki", "3.99"],
+      ["Aloo Tikki", "3.99"]
+    ]},
+    { title: "BOWLS", items: [
+      ["Butter Chicken", "3.99"], ["Paneer Makhni", "3.99"],
+      ["Tandoori Chicken", "3.99"], ["Chicken Tikka", "3.99"], ["Seekh Kabab", "3.99"]
+    ]},
+    { title: "STREET BITES", items: [
+      ["Anday Wala Burger", "3.99"], ["Afghani Burger", "3.99"], ["Chicken Burger", "3.99"],
+      ["Veggie Burger", "3.99"],
+      ["Samosa Chaat", "3.99"], ["Channa Chaat", "3.99"]
+    ]},
+    { title: "DUMPLINGS & SIDES", items: [
+      ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Veggie Momo", "3.99"],
+      ["Chicken Nuggets", "3.99"], ["Fries", "3.99"], ["Samosa", "3.99"], 
+    ]},      
+    { title: "PARATHAS", items: [
+      ["Classic Paratha", "3.99"], ["Cheese Paratha", "3.99"], ["Chicken Paratha", "3.99"], 
+      ["Nutella Paratha", "3.99"]
+    ]},
+        { title: "DESSERT", items: [
+      ["Slice of the Day", "3.99"], ["Nanaimo Bar", "3.99"], ["Cinammon Roll", "3.99"], 
+      ["Chocolate Chip Cookie", "3.99"]
+    ]},
+    { title: "COLD DRINKS", items: [
+      ["Peshawari Lemonade", "3.99"], ["Mango Lassi", "3.99"], ["Kandahari Lassi", "3.99"],
+      ["Jarritos", "3.99"], ["Water", "3.99"]
+    ]},
+    { title: "MILKSHAKES", items: [
+      ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], 
+      ["KitKat Milkshake", "3.99"], ["Bueno Milkshake", "3.99"]
+    ]}
+  ];
+
+  /* Render Menu */
+  (function renderMenu(){
+    const grid = document.getElementById('menuGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    menuData.forEach(section => {
+      const col = document.createElement('div');
+      const h3 = document.createElement('h3');
+      h3.textContent = section.title;
+      col.appendChild(h3);
+      section.items.forEach(([name, price]) => {
+        if(!name) return;
+        const row = document.createElement('div');
+        row.className = 'item';
+        const left = document.createElement('span');
+        left.textContent = name;
+        row.appendChild(left);
+        if (showPrices && price) {
+          const right = document.createElement('span');
+          right.className = 'price';
+          right.textContent = price;
+          row.appendChild(right);
+        }
+        col.appendChild(row);
       });
-    })();
+      grid.appendChild(col);
+    });
+  })();
   </script>
 
-  <!-- === Promo Modal HTML (added) === -->
-  <div id="promoBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Promotion">
-    <div class="modal">
-      <button class="close" aria-label="Close">&times;</button>
-      <img src="https://i.ibb.co/bgDWxN9H/Whats-App-Image-2025-10-07-at-8-38-00-PM.jpg" 
-           alt="Celebrate Every 6 — Khyber Chai House Deal">
-      <div class="cta-row">
-        <a class="cta-primary" href="/order">Order Online</a>
-        <a class="cta-secondary" href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+House%2C+436+Richards+St%2C+Vancouver%2C+BC" target="_blank" rel="noopener">Find Us</a>
-      </div>
+  <!-- === Popup HTML (added) === -->
+  <div id="kchPromo" class="kch-modal-backdrop" role="dialog" aria-modal="true" aria-label="Promotion">
+    <div class="kch-modal">
+      <button class="kch-close" aria-label="Close">&times;</button>
+      <img src="https://i.ibb.co/bgDWxN9H/Whats-App-Image-2025-10-07-at-8-38-00-PM.jpg" alt="Khyber Chai House promotion">
     </div>
   </div>
 
-  <!-- === Promo Modal Logic (always show) === -->
+  <!-- === Popup JS (added) — shows every visit on main page === -->
   <script>
     (function(){
-      // Only on main page
       if (location.pathname !== '/' && location.pathname !== '/index.html') return;
-      const backdrop = document.getElementById('promoBackdrop');
-      if(!backdrop) return;
-
-      const open = () => {
-        backdrop.style.display = 'flex';
-        document.body.classList.add('modal-open');
-        const closeBtn = backdrop.querySelector('.close');
-        if (closeBtn) closeBtn.focus();
-      };
-      const close = () => {
-        backdrop.style.display = 'none';
-        document.body.classList.remove('modal-open');
-      };
-
-      window.addEventListener('load', () => setTimeout(open, 300));
-      backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) close(); });
-      backdrop.querySelector('.close').addEventListener('click', close);
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+      const modal = document.getElementById('kchPromo');
+      if(!modal) return;
+      function open(){ modal.style.display='flex'; document.body.classList.add('kch-modal-open'); }
+      function close(){ modal.style.display='none'; document.body.classList.remove('kch-modal-open'); }
+      window.addEventListener('load', ()=> setTimeout(open, 250));
+      modal.addEventListener('click', e=>{ if(e.target===modal) close(); });
+      modal.querySelector('.kch-close').addEventListener('click', close);
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
   </script>
 </body>
