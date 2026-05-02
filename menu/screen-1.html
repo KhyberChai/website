@@ -22,11 +22,11 @@
 
     img {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
+      top: 0.5vh;
+      left: 0.5vw;
+      width: 99vw;
+      height: 99vh;
+      object-fit: cover;
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
     }
@@ -38,8 +38,8 @@
 </head>
 <body>
 
-<img id="img1" class="active" src="images/screen1-1.jpg" alt="Khyber Menu Screen 1A" />
-<img id="img2" src="images/screen1-2.jpg" alt="Khyber Menu Screen 1B" />
+<img id="img1" class="active" src="images/screen1-1.jpg" />
+<img id="img2" src="images/screen1-2.jpg" />
 
 <script>
   const images = [
@@ -76,20 +76,16 @@
 
   function hideCursor() {
     document.body.style.cursor = "none";
-    document.documentElement.style.cursor = "none";
   }
 
   function showCursorTemporarily() {
     document.body.style.cursor = "default";
-    document.documentElement.style.cursor = "default";
-
     clearTimeout(hideTimer);
     hideTimer = setTimeout(hideCursor, 1500);
   }
 
   document.addEventListener("mousemove", showCursorTemporarily);
   document.addEventListener("click", showCursorTemporarily);
-  document.addEventListener("keydown", hideCursor);
 
   hideCursor();
 </script>
