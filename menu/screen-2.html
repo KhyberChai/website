@@ -18,58 +18,16 @@
     }
 
     img {
-      position: absolute;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-    img.active {
-      opacity: 1;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-<img id="img1" class="active" src="images/screen2-1.jpg" />
-<img id="img2" src="images/screen2-2.jpg" />
-
-<script>
-  const images = [
-    "images/screen2-1.jpg",
-    "images/screen2-2.jpg"
-  ];
-
-  let index = 0;
-  const delay = 12000;
-
-  const imgA = document.getElementById("img1");
-  const imgB = document.getElementById("img2");
-
-  let showingA = true;
-
-  setInterval(() => {
-    index = (index + 1) % images.length;
-
-    const nextSrc = images[index] + "?v=" + Date.now();
-
-    if (showingA) {
-      imgB.src = nextSrc;
-      imgB.classList.add("active");
-      imgA.classList.remove("active");
-    } else {
-      imgA.src = nextSrc;
-      imgA.classList.add("active");
-      imgB.classList.remove("active");
-    }
-
-    showingA = !showingA;
-  }, delay);
-</script>
+<img src="images/screen2-1.jpg?v=1" alt="Khyber Menu Screen 2" />
 
 </body>
 </html>
