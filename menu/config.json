@@ -1,0 +1,17 @@
+{
+  "delay": 12000,
+  "refresh": 3600000,
+  "screens": {
+    "1": [
+      "images/screen1-1.jpg",
+      "images/screen1-2.jpg"
+    ],
+    "2": [
+      "images/screen2-1.jpg",
+          ],
+    "3": [
+      "images/screen3-1.jpg",
+      "images/screen3-2.jpg"
+    ]
+  }
+}
