@@ -7,6 +7,10 @@
   <title>Khyber Menu - Screen 2</title>
 
   <style>
+    html, body, * {
+      cursor: none !important;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -14,13 +18,12 @@
       height: 100%;
       background: #000;
       overflow: hidden;
-      cursor: none;
     }
 
     img {
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
   </style>
@@ -28,6 +31,29 @@
 <body>
 
 <img src="images/screen2-1.jpg?v=1" alt="Khyber Menu Screen 2" />
+
+<script>
+  let hideTimer;
+
+  function hideCursor() {
+    document.body.style.cursor = "none";
+    document.documentElement.style.cursor = "none";
+  }
+
+  function showCursorTemporarily() {
+    document.body.style.cursor = "default";
+    document.documentElement.style.cursor = "default";
+
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(hideCursor, 1500);
+  }
+
+  document.addEventListener("mousemove", showCursorTemporarily);
+  document.addEventListener("click", showCursorTemporarily);
+  document.addEventListener("keydown", hideCursor);
+
+  hideCursor();
+</script>
 
 </body>
 </html>
