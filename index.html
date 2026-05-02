@@ -327,52 +327,105 @@
       L.marker([lat, lng]).addTo(map).bindPopup('Khyber Chai House<br>436 Richards St, Vancouver, BC');
     }
   /* Toggle to show/hide prices */
-  const showPrices = false; // change to true to show prices
+  const showPrices = true; // change to true to show prices
 
   /* ======== MENU DATA (easy to update) ======== */
   const menuData = [
-    { title: "CHAI", items: [
-      ["Special Khyber Chai", "3.99"], ["Karak Chai", "3.99"], ["Peshawari Qehwa", "3.99"],
-      ["Kashmiri Chai", "3.99"], ["Masala Chai", "3.99"],
-    ]},
-    { title: "ESPRESSO BAR", items: [
-      ["Americano", "3.99"], ["Cappuccino", "3.99"], ["Latte", "3.99"], 
-      ["Flat White", "3.99"], ["Macchiato", "3.99"]
-    ]},
-    { title: "ROLLS", items: [
-      ["Beef", "3.99"], ["Chicken", "3.99"], ["Seekh Kabab", "3.99"], ["Paneer Tikki", "3.99"],
-      ["Aloo Tikki", "3.99"]
-    ]},
-    { title: "BOWLS", items: [
-      ["Butter Chicken", "3.99"], ["Paneer Makhni", "3.99"],
-      ["Tandoori Chicken", "3.99"], ["Chicken Tikka", "3.99"], ["Seekh Kabab", "3.99"]
-    ]},
-    { title: "STREET BITES", items: [
-      ["Anday Wala Burger", "3.99"], ["Afghani Burger", "3.99"], ["Chicken Burger", "3.99"],
-      ["Veggie Burger", "3.99"],
-      ["Samosa Chaat", "3.99"], ["Channa Chaat", "3.99"]
-    ]},
-    { title: "DUMPLINGS & SIDES", items: [
-      ["Beef Mantu", "3.99"], ["Chicken Momo", "3.99"], ["Veggie Momo", "3.99"],
-      ["Chicken Nuggets", "3.99"], ["Fries", "3.99"], ["Samosa", "3.99"], 
-    ]},      
-    { title: "PARATHAS", items: [
-      ["Classic Paratha", "3.99"], ["Cheese Paratha", "3.99"], ["Chicken Paratha", "3.99"], 
-      ["Nutella Paratha", "3.99"]
-    ]},
-        { title: "DESSERT", items: [
-      ["Slice of the Day", "3.99"], ["Nanaimo Bar", "3.99"], ["Cinammon Roll", "3.99"], 
-      ["Chocolate Chip Cookie", "3.99"]
-    ]},
-    { title: "COLD DRINKS", items: [
-      ["Peshawari Lemonade", "3.99"], ["Mango Lassi", "3.99"], ["Kandahari Lassi", "3.99"],
-      ["Jarritos", "3.99"], ["Water", "3.99"]
-    ]},
-    { title: "MILKSHAKES", items: [
-      ["Mango Milkshake", "3.99"], ["Strawberry Milkshake", "3.99"], ["Ferrero Milkshake", "3.99"], 
-      ["KitKat Milkshake", "3.99"], ["Bueno Milkshake", "3.99"]
-    ]}
-  ];
+  { title: "CHAI", items: [
+    ["Special Khyber Chai", "3.99"],
+    ["Karak Chai", "3.99"],
+    ["50/50 Chai", "3.99"],
+    ["Masala Chai", "3.99"],
+    ["Pink Chai", "3.99"],
+    ["Peshawari Green Tea", "2.99"]
+  ]},
+
+  { title: "COLD DRINKS", items: [
+    ["Peshawari Lemonade", "5.99"],
+    ["Mango Refresher", "5.99"],
+    ["Kandahari Lassi", "5.99"],
+    ["Jarritos", "3.99"],
+    ["Pakistani Pop", "3.99"],
+    ["Water", "1.99"]
+  ]},
+
+  { title: "MILKSHAKES", items: [
+    ["Ferrero Milkshake", "11.99"],
+    ["KitKat Milkshake", "11.99"],
+    ["Bueno Milkshake", "11.99"],
+    ["Mango Milkshake", "10.99"],
+    ["Strawberry Milkshake", "10.99"],
+    ["Vanilla Milkshake", "10.99"]
+  ]},
+
+  { title: "PARATHAS", items: [
+    ["Qeema Paratha", "10.99"],
+    ["Chicken Paratha", "8.99"],
+    ["Aloo Paratha", "8.99"],
+    ["Cheese Paratha", "6.99"],
+    ["Nutella Paratha", "6.99"],
+    ["Dubai Paratha", "6.99"],
+    ["Biscoff Paratha", "6.99"],
+    ["Classic Paratha", "5.99"]
+  ]},
+
+  { title: "ROLLS", items: [
+    ["Beef", "13.99"],
+    ["Chicken", "11.99"],
+    ["Seekh Kabab", "11.99"],
+    ["Paneer", "11.99"],
+    ["Aloo Tiki", "11.99"],
+    ["Anda Paratha", "9.99"]
+  ]},
+
+  { title: "BOWLS", items: [
+    ["Butter Chicken", "12.99"],
+    ["Tandoori Chicken", "12.99"],
+    ["Paneer Makhni", "12.99"],
+    ["Kadai Paneer", "12.99"],
+    ["Seekh Kabab", "12.99"],
+    ["Kabab Masala", "12.99"],
+    ["Meat N Chips", "12.99"]
+  ]},
+
+  { title: "STREET BITES", items: [
+    ["Anday Wala Burger", "9.99"],
+    ["Afghani Burger", "9.99"],
+    ["Chicken Burger", "9.99"],
+    ["Veggie Burger", "9.99"],
+    ["Samosa Chaat", "7.99"],
+    ["Dahi Bharay", "7.99"],
+    ["Channa Chaat", "6.99"]
+  ]},
+
+  { title: "DUMPLINGS & SIDES", items: [
+    ["Veggie Pakora", "9.99"],
+    ["Beef Mantu", "7.99"],
+    ["Chicken Momo", "7.99"],
+    ["Veggie Momo", "7.99"],
+    ["Tenders", "7.99"],
+    ["Fries", "4.99"],
+    ["Samosa", "2.49"]
+  ]},
+
+  { title: "DESSERT", items: [
+    ["Nanaimo Bar (2 pc)", "8.99"],
+    ["Slice of the Day", "5.99"],
+    ["Cream Roll", "3.99"],
+    ["Pakistani Biscuits", "2.99"],
+    ["Cake Rusk (2 pc)", "1.49"],
+    ["Bakarkhani", "1.49"]
+  ]},
+
+  { title: "PAIRINGS", items: [
+    ["Chai + Cheese Paratha", "9.99"],
+    ["Chai + Classic Paratha", "8.99"],
+    ["Chai + Samosa", "5.49"],
+    ["Chai + Cake Rusk (2 pc)", "5.49"],
+    ["Chai + Bakarkhani", "5.49"],
+    ["Chai + Pakora (8 pc)", "12.99"]
+  ]}
+];
 
   /* Render Menu */
   (function renderMenu(){
