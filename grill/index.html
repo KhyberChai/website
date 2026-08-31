@@ -147,7 +147,12 @@
     </div>
 
     <!-- Primary nav buttons -->
-    <a href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+%26+Grill%2C+6638+152A+St%2C+Surrey%2C+BC" class="link-button" target="_blank" rel="noopener">Find Us on Google</a>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJK1TG32rbhVQRJ9A0Xxss09U"
+       class="link-button"
+       target="_blank"
+       rel="noopener">
+      Leave Us a Google Review
+    </a>
     <a href="#" class="link-button disabled-link" aria-disabled="true">Online Ordering — Coming Soon</a>
     <a href="#" class="link-button" data-toggle="menu">View Menu</a><div id="mount-menu"></div>
     <a href="#" class="link-button" data-toggle="inquiry">Catering Inquiry</a><div id="mount-inquiry"></div>
@@ -157,6 +162,9 @@
     <div id="section-menu" class="section-wrap" aria-hidden="true">
       <div class="card">
         <div id="menuGrid" class="grid"></div>
+        <a href="/grill/menu.pdf" class="link-button" download="Khyber-Chai-and-Grill-Menu.pdf" style="text-align:center; margin-top:1rem;">
+          Download PDF Menu
+        </a>
       </div>
     </div>
 
@@ -361,14 +369,13 @@
   <div id="kchPromo" class="kch-modal-backdrop" role="dialog" aria-modal="true" aria-label="Promotion">
     <div class="kch-modal">
       <button class="kch-close" aria-label="Close">&times;</button>
-      <img src="https://i.ibb.co/h5zvHNL/KCH-Rolls-Bowls-Deal.jpg" alt="Khyber Chai & Grill promotion">
+      <img src="/banner.jpeg" alt="Khyber Chai & Grill promotion">
     </div>
   </div>
 
-  <!-- === Popup JS (added) — shows every visit on main page === -->
+  <!-- === Popup JS — shows every visit on this location page === -->
   <script>
     (function(){
-      if (true) return; // Surrey promo disabled until a location-specific promotion is added
       const modal = document.getElementById('kchPromo');
       if(!modal) return;
       function open(){ modal.style.display='flex'; document.body.classList.add('kch-modal-open'); }
