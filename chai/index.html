@@ -161,6 +161,9 @@
     <div id="section-menu" class="section-wrap" aria-hidden="true">
       <div class="card">
         <div id="menuGrid" class="grid"></div>
+        <a href="/chai/menu.pdf" class="link-button" download="Khyber-Chai-House-Menu.pdf" style="text-align:center; margin-top:1rem;">
+          Download PDF Menu
+        </a>
       </div>
     </div>
 
@@ -465,14 +468,13 @@
   <div id="kchPromo" class="kch-modal-backdrop" role="dialog" aria-modal="true" aria-label="Promotion">
     <div class="kch-modal">
       <button class="kch-close" aria-label="Close">&times;</button>
-      <img src="https://i.ibb.co/h5zvHNL/KCH-Rolls-Bowls-Deal.jpg" alt="Khyber Chai House promotion">
+      <img src="/banner.jpeg" alt="Khyber Chai House promotion">
     </div>
   </div>
 
-  <!-- === Popup JS (added) — shows every visit on main page === -->
+  <!-- === Popup JS — shows every visit on this location page === -->
   <script>
     (function(){
-      if (location.pathname !== '/' && location.pathname !== '/index.html') return;
       const modal = document.getElementById('kchPromo');
       if(!modal) return;
       function open(){ modal.style.display='flex'; document.body.classList.add('kch-modal-open'); }
