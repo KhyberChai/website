@@ -98,30 +98,11 @@
   .flash-text{ font-weight:700; }
 </style>
 
-<!-- === Popup styles (added) === -->
-<style>
-  .kch-modal-backdrop{
-    position:fixed; inset:0; display:none;
-    align-items:center; justify-content:center;
-    background:rgba(0,0,0,.7); z-index:99999;
-    padding:clamp(10px,3vw,28px);
-  }
-  .kch-modal{
-    width:min(680px,96vw); background:#fff; color:#111; border-radius:14px;
-    box-shadow:0 12px 40px rgba(0,0,0,.4); overflow:hidden; position:relative;
-  }
-  .kch-modal img{ display:block; width:100%; height:auto; }
-  .kch-modal .kch-close{
-    position:absolute; top:10px; right:10px; border:0; background:rgba(0,0,0,.55);
-    color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:20px;
-  }
-  body.kch-modal-open{ overflow:hidden; }
-</style>
 </head>
 <body>
   <!-- Static flashing banner -->
   <div id="now-open-banner">
-    <span class="flash-text">NOW OPEN! Visit us at 436 Richards Street, Vancouver!</span>
+    <span class="flash-text">SURREY SOFT OPENING! Visit Khyber Chai &amp; Grill at Unit 115, 6638 152A Street, Surrey!</span>
   </div>
 
   <div class="container">
@@ -464,26 +445,5 @@
   })();
   </script>
 
-  <!-- === Popup HTML (added) === -->
-  <div id="kchPromo" class="kch-modal-backdrop" role="dialog" aria-modal="true" aria-label="Promotion">
-    <div class="kch-modal">
-      <button class="kch-close" aria-label="Close">&times;</button>
-      <img src="/banner.jpeg" alt="Khyber Chai House promotion">
-    </div>
-  </div>
-
-  <!-- === Popup JS — shows every visit on this location page === -->
-  <script>
-    (function(){
-      const modal = document.getElementById('kchPromo');
-      if(!modal) return;
-      function open(){ modal.style.display='flex'; document.body.classList.add('kch-modal-open'); }
-      function close(){ modal.style.display='none'; document.body.classList.remove('kch-modal-open'); }
-      window.addEventListener('load', ()=> setTimeout(open, 250));
-      modal.addEventListener('click', e=>{ if(e.target===modal) close(); });
-      modal.querySelector('.kch-close').addEventListener('click', close);
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
-    })();
-  </script>
 </body>
 </html>
