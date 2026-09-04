@@ -62,6 +62,9 @@
   .grid{ display:grid; grid-template-columns:1fr; gap:1rem; }
   @media (min-width:700px){ .grid{ grid-template-columns:1fr 1fr; } }
   .card h3{ margin:.2rem 0 .5rem; font-size:1.05rem; letter-spacing:.3px; border-bottom:1px dashed rgba(241,227,219,.35); padding-bottom:.35rem; }
+  .reservation-card{ max-width:920px; padding:0; overflow:hidden; background:#fff; }
+  .reservation-frame{ display:block; width:100%; height:920px; border:0; background:#fcf5ec; }
+  @media (max-width:699px){ .reservation-frame{ height:1120px; } }
   .item{ display:flex; align-items:baseline; justify-content:space-between; gap:.5rem; padding:.35rem 0; }
   .item span:first-child{ flex:1 1 auto; }
   .price{ white-space:nowrap; opacity:.95; }
@@ -128,7 +131,7 @@
   <div class="container">
     <a href="/" class="location-switch" aria-label="Change location">← Change Location</a>
     <!-- Header -->
-    <img class="logo" src="/khyber-grill-logo.png" alt="Khyber Chai &amp; Grill Logo">
+    <img class="logo" src="/grill/logo.jpeg" alt="Khyber Chai House Grill &amp; Bistro Logo">
     <h1>Khyber Chai &amp; Grill</h1>
     <div class="address">Unit 115, 6638 152A St, Surrey, BC</div>
 
@@ -154,9 +157,22 @@
       Leave Us a Google Review
     </a>
     <a href="#" class="link-button disabled-link" aria-disabled="true">Online Ordering — Coming Soon</a>
+    <a href="#" class="link-button" data-toggle="reservation">Reserve a Table</a><div id="mount-reservation"></div>
     <a href="#" class="link-button" data-toggle="menu">View Menu</a><div id="mount-menu"></div>
     <a href="#" class="link-button" data-toggle="inquiry">Catering Inquiry</a><div id="mount-inquiry"></div>
     <a href="#" class="link-button" data-toggle="map">Map & Hours</a><div id="mount-map"></div>
+
+    <!-- Reservations (embedded) -->
+    <div id="section-reservation" class="section-wrap" aria-hidden="true">
+      <div class="card reservation-card">
+        <iframe
+          class="reservation-frame"
+          src="https://khyber-reservations.shizad281016.chatgpt.site"
+          title="Reserve a table at Khyber Chai &amp; Grill"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
 
     <!-- Menu (embedded) -->
     <div id="section-menu" class="section-wrap" aria-hidden="true">
@@ -231,11 +247,13 @@
   <script>
     // Sections and mounts
     const sections = {
+      reservation: document.getElementById('section-reservation'),
       menu: document.getElementById('section-menu'),
       inquiry: document.getElementById('section-inquiry'),
       map: document.getElementById('section-map')
     };
     const mounts = {
+      reservation: document.getElementById('mount-reservation'),
       menu: document.getElementById('mount-menu'),
       inquiry: document.getElementById('mount-inquiry'),
       map: document.getElementById('mount-map')
