@@ -101,26 +101,6 @@
   @media (prefers-reduced-motion: reduce){ #now-open-banner{ animation:none; } }
   .flash-text{ font-weight:700; }
 </style>
-
-<!-- === Popup styles (added) === -->
-<style>
-  .kch-modal-backdrop{
-    position:fixed; inset:0; display:none;
-    align-items:center; justify-content:center;
-    background:rgba(0,0,0,.7); z-index:99999;
-    padding:clamp(10px,3vw,28px);
-  }
-  .kch-modal{
-    width:min(680px,96vw); background:#fff; color:#111; border-radius:14px;
-    box-shadow:0 12px 40px rgba(0,0,0,.4); overflow:hidden; position:relative;
-  }
-  .kch-modal img{ display:block; width:100%; height:auto; }
-  .kch-modal .kch-close{
-    position:absolute; top:10px; right:10px; border:0; background:rgba(0,0,0,.55);
-    color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:20px;
-  }
-  body.kch-modal-open{ overflow:hidden; }
-</style>
 </head>
 <body>
   <!-- Static flashing banner -->
@@ -130,12 +110,10 @@
 
   <div class="container">
     <a href="/" class="location-switch" aria-label="Change location">← Change Location</a>
-    <!-- Header -->
     <img class="logo" src="/khyber-grill-logo.png" alt="Khyber Chai House Grill &amp; Bistro Logo">
     <h1>Khyber Chai &amp; Grill</h1>
     <div class="address">Unit 115, 6638 152A St, Surrey, BC</div>
 
-    <!-- Socials -->
     <h2>Follow Us on Social Media</h2>
     <div class="icon-row">
       <a class="circle-btn ig" href="https://www.instagram.com/khyber.chai/" target="_blank" aria-label="Instagram" rel="noopener">
@@ -149,7 +127,6 @@
       </a>
     </div>
 
-    <!-- Primary nav buttons -->
     <a href="https://search.google.com/local/writereview?placeid=ChIJK1TG32rbhVQRJ9A0Xxss09U"
        class="link-button"
        target="_blank"
@@ -157,12 +134,11 @@
       Leave Us a Google Review
     </a>
     <a href="#" class="link-button disabled-link" aria-disabled="true">Online Ordering — Coming Soon</a>
-    <a href="#" class="link-button" data-toggle="reservation">Reserve a Table</a><div id="mount-reservation"></div>
-    <a href="#" class="link-button" data-toggle="menu">View Menu</a><div id="mount-menu"></div>
-    <a href="#" class="link-button" data-toggle="inquiry">Catering Inquiry</a><div id="mount-inquiry"></div>
-    <a href="#" class="link-button" data-toggle="map">Map & Hours</a><div id="mount-map"></div>
+    <a href="#reservation" class="link-button" data-toggle="reservation" aria-controls="section-reservation" aria-expanded="false">Reserve a Table</a><div id="mount-reservation"></div>
+    <a href="#menu" class="link-button" data-toggle="menu" aria-controls="section-menu" aria-expanded="false">View Menu</a><div id="mount-menu"></div>
+    <a href="#inquiry" class="link-button" data-toggle="inquiry" aria-controls="section-inquiry" aria-expanded="false">Catering Inquiry</a><div id="mount-inquiry"></div>
+    <a href="#map" class="link-button" data-toggle="map" aria-controls="section-map" aria-expanded="false">Map & Hours</a><div id="mount-map"></div>
 
-    <!-- Reservations (embedded) -->
     <div id="section-reservation" class="section-wrap" aria-hidden="true">
       <div class="card reservation-card">
         <iframe
@@ -174,7 +150,6 @@
       </div>
     </div>
 
-    <!-- Menu (embedded) -->
     <div id="section-menu" class="section-wrap" aria-hidden="true">
       <div class="card">
         <div id="menuGrid" class="grid"></div>
@@ -184,7 +159,6 @@
       </div>
     </div>
 
-    <!-- Inquiry (embedded) -->
     <div id="section-inquiry" class="section-wrap" aria-hidden="true">
       <div class="card">
         <h3>Catering Inquiry</h3>
@@ -209,43 +183,41 @@
       </div>
     </div>
 
-    <!-- Map & Hours (embedded) -->
-<div id="section-map" class="section-wrap" aria-hidden="true">
-  <div class="card">
-    <h3>Find Us</h3>
-    <div class="map-embed">
-      <iframe
-        title="Khyber Chai & Grill map"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Khyber+Chai+%26+Grill,+6638+152A+St,+Surrey,+BC&output=embed">
-      </iframe>
+    <div id="section-map" class="section-wrap" aria-hidden="true">
+      <div class="card">
+        <h3>Find Us</h3>
+        <div class="map-embed">
+          <iframe
+            title="Khyber Chai & Grill map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Khyber+Chai+%26+Grill,+6638+152A+St,+Surrey,+BC&output=embed">
+          </iframe>
+        </div>
+        <a class="link-button" style="text-align:center; margin-top:.75rem" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+%26+Grill%2C+6638+152A+St%2C+Surrey%2C+BC">
+          Open in Google Maps
+        </a>
+
+        <h3 style="margin-top:1rem">Hours</h3>
+        <div class="muted" style="text-align:center; padding:.65rem 0;">Hours will be posted here when confirmed.</div>
+      </div>
     </div>
-    <a class="link-button" style="text-align:center; margin-top:.75rem" target="_blank" rel="noopener"
-       href="https://www.google.com/maps/search/?api=1&query=Khyber+Chai+%26+Grill%2C+6638+152A+St%2C+Surrey%2C+BC">
-      Open in Google Maps
-    </a>
 
-    <h3 style="margin-top:1rem">Hours</h3>
-    <div class="muted" style="text-align:center; padding:.65rem 0;">Hours will be posted here when confirmed.</div>
-  </div>
-</div>
-
-<style>
-  .map-embed iframe {
-    width: 100%;
-    height: 340px;
-    border: 0;
-    border-radius: 10px;
-  }
-</style>
+    <style>
+      .map-embed iframe {
+        width: 100%;
+        height: 340px;
+        border: 0;
+        border-radius: 10px;
+      }
+    </style>
 
     <div class="footer">Scan the QR or tap NFC at your table for instant access.</div>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
-    // Sections and mounts
     const sections = {
       reservation: document.getElementById('section-reservation'),
       menu: document.getElementById('section-menu'),
@@ -259,9 +231,7 @@
       map: document.getElementById('mount-map')
     };
 
-    // Toggle handler: open panel under its button, one at a time, slide/fade animation
     function openSection(key){
-      // hide all
       Object.entries(sections).forEach(([k,el])=>{
         if(!el) return;
         el.style.display = 'none';
@@ -305,18 +275,36 @@
       if(key==='map') setTimeout(initMap, 60);
     }
 
-    // Click bindings
+    function routeToSection(){
+      const key = window.location.hash.slice(1);
+      const valid = Object.prototype.hasOwnProperty.call(sections, key);
+      openSection(valid ? key : '');
+      if(valid) {
+        requestAnimationFrame(()=>{
+          document.querySelector(`[data-toggle="${key}"]`)
+            .scrollIntoView({behavior:'auto', block:'start'});
+        });
+      }
+    }
+
     document.querySelectorAll('[data-toggle]').forEach(btn=>{
       btn.addEventListener('click', function(e){
         e.preventDefault();
         const key = btn.getAttribute('data-toggle');
         const isOpen = sections[key] && sections[key].style.display === 'block';
-        openSection(isOpen ? '' : key);
-        btn.scrollIntoView({behavior:'smooth', block:'start'});
+        if(isOpen){
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+          openSection('');
+        } else if(window.location.hash === `#${key}`){
+          routeToSection();
+        } else {
+          window.location.hash = key;
+        }
       });
     });
+    window.addEventListener('hashchange', routeToSection);
+    routeToSection();
 
-    // Ordering app deep-link handler (kept from earlier)
     document.querySelectorAll('.order').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -334,7 +322,6 @@
       });
     });
 
-    // Leaflet map
     let mapInited = false;
     function initMap(){
       if(mapInited) return; mapInited = true;
@@ -343,65 +330,40 @@
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
       L.marker([lat, lng]).addTo(map).bindPopup('Khyber Chai & Grill<br>Unit 115, 6638 152A St, Surrey, BC');
     }
-  /* Toggle to show/hide prices */
-  const showPrices = true; // change to true to show prices
 
-  /* ======== MENU DATA (easy to update) ======== */
-  const menuData = [
-    { title: "Khyber Chai & Grill", items: [
-      ["", ""]
-    ]}
-  ];
+    const showPrices = true;
+    const menuData = [
+      { title: "Khyber Chai & Grill", items: [
+        ["", ""]
+      ]}
+    ];
 
-  /* Render Menu */
-  (function renderMenu(){
-    const grid = document.getElementById('menuGrid');
-    if(!grid) return;
-    grid.innerHTML = '';
-    menuData.forEach(section => {
-      const col = document.createElement('div');
-      const h3 = document.createElement('h3');
-      h3.textContent = section.title;
-      col.appendChild(h3);
-      section.items.forEach(([name, price]) => {
-        if(!name) return;
-        const row = document.createElement('div');
-        row.className = 'item';
-        const left = document.createElement('span');
-        left.textContent = name;
-        row.appendChild(left);
-        if (showPrices && price) {
-          const right = document.createElement('span');
-          right.className = 'price';
-          right.textContent = price;
-          row.appendChild(right);
-        }
-        col.appendChild(row);
+    (function renderMenu(){
+      const grid = document.getElementById('menuGrid');
+      if(!grid) return;
+      grid.innerHTML = '';
+      menuData.forEach(section => {
+        const col = document.createElement('div');
+        const h3 = document.createElement('h3');
+        h3.textContent = section.title;
+        col.appendChild(h3);
+        section.items.forEach(([name, price]) => {
+          if(!name) return;
+          const row = document.createElement('div');
+          row.className = 'item';
+          const left = document.createElement('span');
+          left.textContent = name;
+          row.appendChild(left);
+          if (showPrices && price) {
+            const right = document.createElement('span');
+            right.className = 'price';
+            right.textContent = price;
+            row.appendChild(right);
+          }
+          col.appendChild(row);
+        });
+        grid.appendChild(col);
       });
-      grid.appendChild(col);
-    });
-  })();
-  </script>
-
-  <!-- === Popup HTML (added) === -->
-  <div id="kchPromo" class="kch-modal-backdrop" role="dialog" aria-modal="true" aria-label="Promotion">
-    <div class="kch-modal">
-      <button class="kch-close" aria-label="Close">&times;</button>
-      <img src="/banner.jpeg" alt="Khyber Chai & Grill promotion">
-    </div>
-  </div>
-
-  <!-- === Popup JS — shows every visit on this location page === -->
-  <script>
-    (function(){
-      const modal = document.getElementById('kchPromo');
-      if(!modal) return;
-      function open(){ modal.style.display='flex'; document.body.classList.add('kch-modal-open'); }
-      function close(){ modal.style.display='none'; document.body.classList.remove('kch-modal-open'); }
-      window.addEventListener('load', ()=> setTimeout(open, 250));
-      modal.addEventListener('click', e=>{ if(e.target===modal) close(); });
-      modal.querySelector('.kch-close').addEventListener('click', close);
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
   </script>
 </body>
