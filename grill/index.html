@@ -10,6 +10,7 @@
   :root{
     --brand:#943c2c; --light:#fcf5ec; --light2:#f1e3db; --ink:#111;
     --ig:#E4405F; --fb:#1877F2; --tt:#000000;
+    --ue:#06C167; --dd:#FF3008; --rt:#00B3A0; --sk:#FF6A00; --ft:#00C362;
   }
   *,*::before,*::after{ box-sizing:border-box; }
   html,body{height:100%}
@@ -29,72 +30,73 @@
     width:54px; height:54px; border-radius:50%;
     display:inline-flex; align-items:center; justify-content:center;
     border:1px solid rgba(241,227,219,.15);
-    background:transparent; text-decoration:none;
-    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+    background:transparent; text-decoration:none; transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
     color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.05), 0 6px 16px rgba(0,0,0,.12);
   }
   .circle-btn:hover{ transform:scale(1.08); background:rgba(252,245,236,.06); }
   .circle-btn svg{ width:28px; height:28px; display:block; fill:#fff; }
+  .app{ display:flex; flex-direction:column; align-items:center; gap:6px; min-width:70px; }
+  .app .label{ font-size:.78rem; line-height:1; color:#fcf5ec; opacity:.95; }
   .ig{ background:var(--ig); border-color:transparent; }
   .fb{ background:var(--fb); border-color:transparent; }
   .tt{ background:var(--tt); border-color:#111; }
+  .ue{ background:var(--ue); border-color:transparent; }
+  .dd{ background:var(--dd); border-color:transparent; }
+  .rt{ background:var(--rt); border-color:transparent; }
+  .sk{ background:var(--sk); border-color:transparent; }
+  .ft{ background:var(--ft); border-color:transparent; }
   .link-button{
     display:block; width:100%; padding:1rem; margin:.45rem 0; background:var(--light); color:var(--brand);
-    text-decoration:none; border-radius:10px; font-weight:700;
-    transition:background-color .2s,color .2s,transform .06s;
+    text-decoration:none; border-radius:10px; font-weight:700; transition:background-color .2s,color .2s,transform .06s;
     box-shadow:0 1px 0 rgba(0,0,0,.12), 0 6px 16px rgba(0,0,0,.12);
   }
   .link-button:hover{ background:var(--light2); color:#7a2f22; }
   .link-button:active{ transform:translateY(1px); }
+  .disabled-link{ opacity:.62; cursor:default; pointer-events:none; }
   .section-wrap{ margin-top:1rem; text-align:left; display:none; }
   .card{
     max-width:720px; margin:0 auto;
     background:rgba(252,245,236,.06); border:1px solid rgba(241,227,219,.25);
     border-radius:14px; padding:1rem 1rem .9rem; backdrop-filter:blur(1px);
   }
-  .card h3{
-    margin:.2rem 0 .5rem; font-size:1.05rem; letter-spacing:.3px;
-    border-bottom:1px dashed rgba(241,227,219,.35); padding-bottom:.35rem;
-  }
+  .grid{ display:grid; grid-template-columns:1fr; gap:1rem; }
+  @media (min-width:700px){ .grid{ grid-template-columns:1fr 1fr; } }
+  .card h3{ margin:.2rem 0 .5rem; font-size:1.05rem; letter-spacing:.3px; border-bottom:1px dashed rgba(241,227,219,.35); padding-bottom:.35rem; }
   .reservation-card{ max-width:920px; padding:0; overflow:hidden; background:#fff; }
   .reservation-frame{ display:block; width:100%; height:920px; border:0; background:#fcf5ec; }
   @media (max-width:699px){ .reservation-frame{ height:1120px; } }
-  .hours-list{ display:grid; gap:.55rem; padding:.65rem 0; line-height:1.5; }
-  .hours-row{ display:grid; grid-template-columns:110px 1fr; gap:.5rem; }
-  @media (max-width:420px){ .hours-row{ grid-template-columns:85px 1fr; } }
+  .item{ display:flex; align-items:baseline; justify-content:space-between; gap:.5rem; padding:.35rem 0; }
+  .item span:first-child{ flex:1 1 auto; }
+  .price{ white-space:nowrap; opacity:.95; }
+  .muted{ opacity:.9; }
+  .hours-list{ display:grid; gap:1.15rem; padding:.9rem 0; line-height:1.5; }
+  .hours-row{ display:grid; grid-template-columns:1fr 1fr; gap:.5rem; align-items:start; font-size:clamp(.9rem,2.6vw,1.1rem); }
+  .hours-row strong{ font-weight:400; }
   .footer{ margin-top:2rem; font-size:.95rem; color:#f5e8dc; opacity:.95; }
-  select.guests{
-    background:rgba(252,245,236,.08); color:var(--light);
-    border-color:rgba(241,227,219,.35); font-weight:600;
-  }
+  select.guests{ background:rgba(252,245,236,.08); color:var(--light); border-color:rgba(241,227,219,.35); font-weight:600; }
   select.guests option[disabled]{ color:#f5e8dc; opacity:.7; }
   input, select, textarea{
-    width:100%; padding:.95rem 1rem; border-radius:8px;
-    border:1px solid rgba(241,227,219,.35);
+    width:100%; padding:.95rem 1rem; border-radius:8px; border:1px solid rgba(241,227,219,.35);
     background:rgba(252,245,236,.08); color:var(--light);
   }
   input::placeholder, textarea::placeholder{ color:#f5e8dc; opacity:.75; }
   textarea{ min-height:110px; }
   .btn{
-    display:inline-block; background:var(--light); color:var(--brand);
-    border:0; border-radius:10px; font-weight:700; padding:.95rem 1.1rem;
-    cursor:pointer; box-shadow:0 1px 0 rgba(0,0,0,.12), 0 6px 16px rgba(0,0,0,.12);
+    display:inline-block; background:var(--light); color:var(--brand); border:0; border-radius:10px; font-weight:700;
+    padding:.95rem 1.1rem; cursor:pointer; box-shadow:0 1px 0 rgba(0,0,0,.12), 0 6px 16px rgba(0,0,0,.12);
   }
   .btn:hover{ background:var(--light2); color:#7a2f22; }
+  #map{ width:100%; height:340px; border-radius:10px; overflow:hidden; }
   .now-open-banner{
     position:sticky; top:0; z-index:9999; width:100%; padding:.75rem 1rem;
     text-align:center; color:#fff; font-weight:700; line-height:1.5;
     background:linear-gradient(90deg, var(--brand), #b67c4b 60%, #e2b07a);
     box-shadow:0 2px 10px rgba(0,0,0,.15);
   }
-  .map-embed iframe{
-    width:100%; height:340px; border:0; border-radius:10px;
-  }
 </style>
 </head>
 <body>
   <div class="now-open-banner">NOW OPEN - Come visit us @ 115-6638 152 A Street, Surrey</div>
-
   <div class="container">
     <a href="/" class="location-switch" aria-label="Change location">← Change Location</a>
     <img class="logo" src="/khyber-grill-logo.png" alt="Khyber Chai House Grill &amp; Bistro Logo">
@@ -115,18 +117,16 @@
     </div>
 
     <a href="https://search.google.com/local/writereview?placeid=ChIJK1TG32rbhVQRJ9A0Xxss09U"
-       class="link-button" target="_blank" rel="noopener">
+       class="link-button"
+       target="_blank"
+       rel="noopener">
       Leave Us a Google Review
     </a>
     <a href="https://khyber-chai-grill.square.site" class="link-button" target="_blank" rel="noopener">Order Now</a>
-    <a href="#reservation" class="link-button" data-toggle="reservation" aria-controls="section-reservation" aria-expanded="false">Reserve a Table</a>
-    <div id="mount-reservation"></div>
-    <a href="#menu" class="link-button" data-toggle="menu" aria-controls="section-menu" aria-expanded="false">View Menu</a>
-    <div id="mount-menu"></div>
-    <a href="#inquiry" class="link-button" data-toggle="inquiry" aria-controls="section-inquiry" aria-expanded="false">Catering Inquiry</a>
-    <div id="mount-inquiry"></div>
-    <a href="#map" class="link-button" data-toggle="map" aria-controls="section-map" aria-expanded="false">Map &amp; Hours</a>
-    <div id="mount-map"></div>
+    <a href="#reservation" class="link-button" data-toggle="reservation" aria-controls="section-reservation" aria-expanded="false">Reserve a Table</a><div id="mount-reservation"></div>
+    <a href="#menu" class="link-button" data-toggle="menu" aria-controls="section-menu" aria-expanded="false">View Menu</a><div id="mount-menu"></div>
+    <a href="#inquiry" class="link-button" data-toggle="inquiry" aria-controls="section-inquiry" aria-expanded="false">Catering Inquiry</a><div id="mount-inquiry"></div>
+    <a href="#map" class="link-button" data-toggle="map" aria-controls="section-map" aria-expanded="false">Map & Hours</a><div id="mount-map"></div>
 
     <div id="section-reservation" class="section-wrap" aria-hidden="true">
       <div class="card reservation-card">
@@ -188,20 +188,30 @@
 
         <h3 style="margin-top:1rem">Hours</h3>
         <div class="hours-list">
-          <div class="hours-row"><strong>Monday</strong><span>Closed</span></div>
-          <div class="hours-row"><strong>Tuesday</strong><span>3:00 PM–10:30 PM</span></div>
-          <div class="hours-row"><strong>Wednesday</strong><span>3:00 PM–10:30 PM</span></div>
-          <div class="hours-row"><strong>Thursday</strong><span>3:00 PM–10:30 PM</span></div>
-          <div class="hours-row"><strong>Friday</strong><span>3:00 PM–10:30 PM</span></div>
-          <div class="hours-row"><strong>Saturday</strong><span>Brunch 11:00 AM–2:00 PM; Dinner 3:00 PM–10:30 PM</span></div>
-          <div class="hours-row"><strong>Sunday</strong><span>Brunch 11:00 AM–2:00 PM; Dinner 3:00 PM–10:30 PM</span></div>
+          <div class="hours-row"><strong>Sun</strong><span>11 AM – 2 PM (Brunch)<br>3 PM – 10:30 PM (Dinner)</span></div>
+          <div class="hours-row"><strong>Mon</strong><span>Closed</span></div>
+          <div class="hours-row"><strong>Tue</strong><span>3 PM – 10:30 PM</span></div>
+          <div class="hours-row"><strong>Wed</strong><span>3 PM – 10:30 PM</span></div>
+          <div class="hours-row"><strong>Thu</strong><span>3 PM – 10:30 PM</span></div>
+          <div class="hours-row"><strong>Fri</strong><span>3 PM – 10:30 PM</span></div>
+          <div class="hours-row"><strong>Sat</strong><span>11 AM – 2 PM (Brunch)<br>3 PM – 10:30 PM (Dinner)</span></div>
         </div>
       </div>
     </div>
 
+    <style>
+      .map-embed iframe {
+        width: 100%;
+        height: 340px;
+        border: 0;
+        border-radius: 10px;
+      }
+    </style>
+
     <div class="footer">Scan the QR or tap NFC at your table for instant access.</div>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     const sections = {
       reservation: document.getElementById('section-reservation'),
@@ -221,24 +231,19 @@
         if(!el) return;
         el.style.display = 'none';
         el.setAttribute('aria-hidden','true');
-        el.style.opacity = '';
-        el.style.height = '';
-        el.style.transition = '';
-        el.style.overflow = '';
+        el.style.opacity = ''; el.style.height = ''; el.style.transition = ''; el.style.overflow='';
       });
 
       document.querySelectorAll('[data-toggle]').forEach(btn=>{
-        btn.setAttribute(
-          'aria-expanded',
-          btn.getAttribute('data-toggle') === key ? 'true' : 'false'
-        );
+        const target = btn.getAttribute('data-toggle');
+        btn.setAttribute('aria-expanded', target === key ? 'true' : 'false');
       });
 
       if(!key || !sections[key]) return;
 
       const panel = sections[key];
       const mount = mounts[key];
-      if(panel && mount && panel.previousElementSibling !== mount){
+      if (panel && mount && panel.previousElementSibling !== mount) {
         mount.insertAdjacentElement('afterend', panel);
       }
 
@@ -247,14 +252,12 @@
       panel.style.overflow = 'hidden';
       panel.style.opacity = '0';
       panel.style.height = '0px';
-
       const targetHeight = panel.scrollHeight;
       requestAnimationFrame(()=>{
         panel.style.transition = 'height 280ms ease, opacity 220ms ease';
         panel.style.height = targetHeight + 'px';
         panel.style.opacity = '1';
       });
-
       panel.addEventListener('transitionend', function tidy(e){
         if(e.propertyName === 'height'){
           panel.style.transition = '';
@@ -263,14 +266,15 @@
           panel.removeEventListener('transitionend', tidy);
         }
       });
+
+      if(key==='map') setTimeout(initMap, 60);
     }
 
     function routeToSection(){
       const key = window.location.hash.slice(1);
       const valid = Object.prototype.hasOwnProperty.call(sections, key);
       openSection(valid ? key : '');
-
-      if(valid){
+      if(valid) {
         requestAnimationFrame(()=>{
           document.querySelector(`[data-toggle="${key}"]`)
             .scrollIntoView({behavior:'auto', block:'start'});
@@ -283,7 +287,6 @@
         e.preventDefault();
         const key = btn.getAttribute('data-toggle');
         const isOpen = sections[key] && sections[key].style.display === 'block';
-
         if(isOpen){
           history.replaceState(null, '', window.location.pathname + window.location.search);
           openSection('');
@@ -294,9 +297,34 @@
         }
       });
     });
-
     window.addEventListener('hashchange', routeToSection);
     routeToSection();
+
+    document.querySelectorAll('.order').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const app = a.dataset.appUrl;
+        const web = a.dataset.webUrl || a.href || '#';
+        let opened = false;
+        const now = Date.now();
+        const timer = setTimeout(()=>{ if(!opened) window.open(web, '_blank'); }, 650);
+        const iframe = document.createElement('iframe');
+        iframe.style.display='none'; iframe.src = app; document.body.appendChild(iframe);
+        setTimeout(()=>{ document.body.removeChild(iframe); }, 500);
+        document.addEventListener('visibilitychange', ()=> {
+          if(document.hidden && Date.now()-now < 1500){ opened = true; clearTimeout(timer); }
+        }, {once:true});
+      });
+    });
+
+    let mapInited = false;
+    function initMap(){
+      if(mapInited) return; mapInited = true;
+      const lat = 49.1236, lng = -122.8028;
+      const map = L.map('map').setView([lat, lng], 17);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
+      L.marker([lat, lng]).addTo(map).bindPopup('Khyber Chai & Grill<br>Unit 115, 6638 152A St, Surrey, BC');
+    }
   </script>
 </body>
 </html>
