@@ -1,0 +1,138 @@
+{
+  "photos": [
+    {
+      "image": "wall-tahir.jpg",
+      "name": "Tahir Mehmood",
+      "handle": "chtahirmehmood",
+      "url": "https://www.instagram.com/chtahirmehmood/reel/Dd3GuP9tDD4/",
+      "category": "guest",
+      "title": "A conversation over chai",
+      "alt": "Tahir Mehmood\u2019s reel cover showing guests at a Khyber table",
+      "source": "Public collaboration post visible on @khyber.chai",
+      "retrieved": "2026-10-04",
+      "id": "wall-tahir",
+      "approved": true
+    },
+    {
+      "image": "wall-mahnoor.jpg",
+      "name": "Mahnoor Raza",
+      "handle": "travelandtastebymr",
+      "url": "https://www.instagram.com/travelandtastebymr/reel/DczArFdMOas/",
+      "category": "guest",
+      "title": "Chai ho jaye?",
+      "alt": "Mahnoor Raza holding a cup of chai at Khyber Chai & Grill",
+      "source": "Public collaboration post visible on @khyber.chai",
+      "retrieved": "2026-10-04",
+      "id": "wall-mahnoor",
+      "approved": true
+    },
+    {
+      "image": "wall-amna.jpg",
+      "name": "Amna",
+      "handle": "amnasofficial",
+      "url": "https://www.instagram.com/amnasofficial/reel/DdfXflpJ2Or/",
+      "category": "guest",
+      "title": "Around the table",
+      "alt": "Amna at a table with Khyber dishes in Surrey",
+      "source": "Public collaboration post visible on @khyber.chai",
+      "retrieved": "2026-10-04",
+      "id": "wall-amna",
+      "approved": true
+    },
+    {
+      "image": "wall-sk-media.jpg",
+      "name": "SK Media",
+      "handle": "sk.media33",
+      "url": "https://www.instagram.com/sk.media33/p/DdPqNmfD7JY/",
+      "category": "instagram",
+      "title": "A little Khyber glow",
+      "alt": "Khyber Chai & Grill\u2019s illuminated logo photographed by SK Media",
+      "source": "Public collaboration post visible on @khyber.chai",
+      "retrieved": "2026-10-04",
+      "id": "wall-sk-media",
+      "approved": true
+    },
+    {
+      "image": "wall-anum.jpg",
+      "name": "Anum Khan",
+      "handle": "m.anumblog",
+      "url": "https://www.instagram.com/m.anumblog/reel/DdYEN8fCMR2/",
+      "category": "instagram",
+      "title": "A table full of food",
+      "alt": "Anum Khan\u2019s Instagram reel cover showing the Surrey table and dishes",
+      "source": "Public collaboration post visible on @khyber.chai",
+      "retrieved": "2026-10-04",
+      "id": "wall-anum",
+      "approved": true
+    },
+    {
+      "image": "wall-anywhere-vancouver.jpg",
+      "name": "Anywhere Vancouver",
+      "handle": "anywherevancouver",
+      "url": "https://www.instagram.com/anywherevancouver/p/DcsEUoeG-5k/",
+      "category": "instagram",
+      "title": "From Vancouver to Surrey",
+      "alt": "Anywhere Vancouver\u2019s Instagram post featuring two Khyber chai cups",
+      "source": "Public collaboration post visible on @khyber.chai",
+      "retrieved": "2026-10-04",
+      "id": "wall-anywhere-vancouver",
+      "approved": true
+    }
+  ],
+  "reviews": [
+    {
+      "reviewer": "Anwar Ali",
+      "location": "Khyber Chai & Grill, Surrey",
+      "rating": 5,
+      "excerpt": "The food was absolutely outstanding, packed with flavor, and beautifully presented.",
+      "source": "Surrey Google Maps profile, observed October 3, 2026",
+      "id": "verified-review-1",
+      "approved": true,
+      "location_key": "surrey",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJK1TG32rbhVQRJ9A0Xxss09U"
+    },
+    {
+      "reviewer": "Sehrish Nasim",
+      "location": "Khyber Chai & Grill, Surrey",
+      "rating": 5,
+      "excerpt": "Really enjoyed the kabab combo and Chana dhall was super soft and tasty.",
+      "source": "Surrey Google Maps profile, observed October 3, 2026",
+      "id": "verified-review-2",
+      "approved": true,
+      "location_key": "surrey",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJK1TG32rbhVQRJ9A0Xxss09U"
+    },
+    {
+      "reviewer": "Vaibhav Jadhav",
+      "location": "Khyber Chai House, Vancouver",
+      "rating": 5,
+      "excerpt": "The chai hit the spot, especially with the samosas.",
+      "source": "Vancouver Google Maps profile, observed October 3, 2026",
+      "id": "verified-review-3",
+      "approved": true,
+      "location_key": "vancouver",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14"
+    }
+  ],
+  "last_import": null,
+  "sources": {
+    "instagram": [
+      {
+        "handle": "khyber.chai",
+        "location": "vancouver"
+      },
+      {
+        "handle": "khyber.chaigrill",
+        "location": "surrey"
+      }
+    ],
+    "facebook": [
+      {
+        "handle": "khyber.chaigrill",
+        "location": "surrey"
+      }
+    ],
+    "new_photos_approved_by_default": false,
+    "automatic_import_status": "awaiting_account_connections"
+  }
+}
