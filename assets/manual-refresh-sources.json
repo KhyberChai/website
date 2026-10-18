@@ -1,0 +1,31 @@
+{
+  "checked": "2026-10-17",
+  "mode": "manual snapshot",
+  "photos": [
+    {
+      "file": "social-brunch.jpg",
+      "title": "Weekend brunch",
+      "source": "https://www.instagram.com/khyber.chaigrill/p/DeI2Q33NMay/",
+      "published": "Oct 5, 2026"
+    },
+    {
+      "file": "wall-vijay-yamla.jpg",
+      "title": "Chai with Vijay Yamla",
+      "source": "https://www.instagram.com/vijayyamla/p/DeGsqRxm26W/",
+      "published": "Oct 5, 2026"
+    },
+    {
+      "file": "google-lunch-platter.jpg",
+      "title": "Lunch at Khyber",
+      "source": "https://www.google.com/maps/contrib/107103210136200414989",
+      "published": "Sep 2026"
+    },
+    {
+      "file": "wall-halal-eats.jpg",
+      "title": "Take a seat",
+      "source": "https://www.instagram.com/outandaboutt.s/reel/Dcz8Aq9QuHR/",
+      "published": "Sep 2, 2026"
+    }
+  ],
+  "omitted": "Expired Thanksgiving notices, old opening hours and duplicate brunch poster."
+}

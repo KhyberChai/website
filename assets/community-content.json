@@ -77,6 +77,32 @@
       "retrieved": "2026-10-04",
       "id": "wall-anywhere-vancouver",
       "approved": true
+    },
+    {
+      "id": "wall-vijay-yamla",
+      "image": "wall-vijay-yamla.jpg",
+      "name": "Vijay Yamla",
+      "handle": "vijayyamla",
+      "url": "https://www.instagram.com/vijayyamla/p/DeGsqRxm26W/",
+      "title": "Chai with Vijay Yamla",
+      "alt": "Vijay Yamla standing beside the Khyber Chai and Grill sign",
+      "category": "guest",
+      "approved": true,
+      "source": "Public collaboration visible on @khyber.chaigrill",
+      "retrieved": "2026-10-17"
+    },
+    {
+      "id": "wall-halal-eats",
+      "image": "wall-halal-eats.jpg",
+      "name": "Halal Eats & Activities",
+      "handle": "outandaboutt.s",
+      "url": "https://www.instagram.com/outandaboutt.s/reel/Dcz8Aq9QuHR/",
+      "title": "A seat at Khyber",
+      "alt": "Dining tables and colourful walls inside Khyber Surrey",
+      "category": "instagram",
+      "approved": true,
+      "source": "Public collaboration visible on @khyber.chaigrill",
+      "retrieved": "2026-10-17"
     }
   ],
   "reviews": [
@@ -112,6 +138,39 @@
       "approved": true,
       "location_key": "vancouver",
       "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14"
+    },
+    {
+      "id": "manual-varsha",
+      "reviewer": "Varsha Singh",
+      "excerpt": "Today while feeling under the weather I decided to head over and get a sweet pink chai. Totally worth it.",
+      "rating": 5,
+      "location": "Khyber Chai & Grill, Surrey",
+      "location_key": "surrey",
+      "approved": true,
+      "source": "Public Google Maps profile, manually observed October 17, 2026",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJK1TG32rbhVQRJ9A0Xxss09U"
+    },
+    {
+      "id": "manual-mariam",
+      "reviewer": "Mariam Bilgrami",
+      "excerpt": "Brunch tasted just like home! The meetha paratha and chai took me right back to childhood.",
+      "rating": 5,
+      "location": "Khyber Chai & Grill, Surrey",
+      "location_key": "surrey",
+      "approved": true,
+      "source": "Public Google Maps profile, manually observed October 17, 2026",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJK1TG32rbhVQRJ9A0Xxss09U"
+    },
+    {
+      "id": "manual-sahejpreet",
+      "reviewer": "Sahejpreet C",
+      "excerpt": "Most satisfying brunch in surrey",
+      "rating": 5,
+      "location": "Khyber Chai & Grill, Surrey",
+      "location_key": "surrey",
+      "approved": true,
+      "source": "Public Google Maps profile, manually observed October 17, 2026",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJK1TG32rbhVQRJ9A0Xxss09U"
     }
   ],
   "last_import": null,
@@ -133,6 +192,7 @@
       }
     ],
     "new_photos_approved_by_default": false,
-    "automatic_import_status": "awaiting_account_connections"
-  }
+    "automatic_import_status": "manual_updates"
+  },
+  "last_manual_refresh": "2026-10-17"
 }
