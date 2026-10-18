@@ -90,13 +90,19 @@
 }
 
 
-/* Manual content refresh: compact desktop cards, unchanged mobile wall. */
-.manual-moments{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.manual-moment{min-width:0;border:1px solid var(--line);background:#fff;border-radius:16px;overflow:hidden}
+/* Manual content carousel: native swipe, snap points and accessible controls. */
+.manual-moments{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:0;padding:4px 2px 18px;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--red) transparent}
+.manual-moment{flex:0 0 calc((100% - 40px)/3);min-width:0;scroll-snap-align:start;border:1px solid var(--line);background:#fff;border-radius:16px;overflow:hidden}
 .manual-moment>a{display:block;background:#f7f3ed}
 .manual-moment img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
-.manual-moment:first-child img[src*="social-brunch"]{object-fit:contain}
 .manual-moment img[src*="social-brunch"]{object-fit:contain}
 .manual-moment-body{padding:18px}.manual-moment h3{font-size:24px;margin:8px 0}.manual-moment p{font-size:14px;line-height:1.6}.manual-moment .text-link{font-size:12px;overflow-wrap:anywhere}
-@media(max-width:1000px){.manual-moments{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.manual-moments{grid-template-columns:1fr;gap:18px}.manual-moment img{aspect-ratio:4/3}}
+.moments-controls{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin:0 0 18px}
+.moments-arrow{display:grid;place-items:center;flex:none;width:44px;height:44px;padding:0;border:1px solid var(--red);border-radius:50%;color:var(--red);background:transparent;font-size:24px;cursor:pointer}
+.moments-arrow:hover:not(:disabled){color:white;background:var(--red)}
+.moments-arrow:disabled{opacity:.3;cursor:default}
+.moments-status{min-width:70px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums}
+.moments-arrow:focus-visible,.manual-moments:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+@media(max-width:1000px){.manual-moment{flex-basis:calc((100% - 20px)/2)}}
+@media(max-width:600px){.manual-moments{gap:14px}.manual-moment{flex-basis:86%}.manual-moment img{aspect-ratio:4/3}.moments-controls{justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){.manual-moments{scroll-behavior:auto}}
