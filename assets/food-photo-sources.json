@@ -96,7 +96,11 @@
     "height": 225,
     "source_url": "https://www.google.com/maps/contrib/108000304676413068589",
     "checked": "2026-10-29",
-    "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image."
+    "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image.",
+    "display_pages": [
+      "/chai/"
+    ],
+    "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
   },
   {
     "file": "surrey-qeema-paratha.webp",
@@ -107,7 +111,11 @@
     "height": 440,
     "source_url": "https://www.ubereats.com/ca/store/khyber-chai-%26-grill/-fQa21L-Up6u-wdznSDwSQ",
     "checked": "2026-10-29",
-    "history": "Existing restaurant menu image downloaded and visually checked."
+    "history": "Existing restaurant menu image downloaded and visually checked.",
+    "display_pages": [
+      "/chai/"
+    ],
+    "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
   },
   {
     "file": "surrey-cheese-paratha.webp",
@@ -118,6 +126,22 @@
     "height": 440,
     "source_url": "https://www.ubereats.com/ca/store/khyber-chai-%26-grill/-fQa21L-Up6u-wdznSDwSQ",
     "checked": "2026-10-29",
-    "history": "Existing restaurant menu image downloaded and visually checked."
+    "history": "Existing restaurant menu image downloaded and visually checked.",
+    "display_pages": [
+      "/chai/"
+    ],
+    "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
+  },
+  {
+    "file": "social-brunch.jpg",
+    "title": "The Khyber Nashta brunch promotion",
+    "city": "Surrey",
+    "source_url": "https://www.instagram.com/khyber.chaigrill/p/DeI2Q33NMay/",
+    "display_pages": [
+      "/",
+      "/grill/"
+    ],
+    "menu_match": "Brunch.pdf: beef qeema, anda ghotala, cholay and classic parathas. Promotion shows these components; not a verified photo of a served order.",
+    "display_note": "CSS window shows food region x230–640,y230–570 of the 640px poster. Outdated address/footer omitted. Other brunch plates have no verified replacement photos."
   }
 ]
