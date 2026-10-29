@@ -22,28 +22,6 @@
     "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image."
   },
   {
-    "file": "vancouver-chai-paratha.webp",
-    "title": "Chai & filled paratha",
-    "city": "Vancouver",
-    "credit": "Khyber Chai House ordering menu",
-    "width": 660,
-    "height": 440,
-    "source_url": "https://www.ubereats.com/ca/store/khyber-chai-house-436-richards-st/W3ihKJvuWOirQyQJGPkuKw",
-    "checked": "2026-10-29",
-    "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image."
-  },
-  {
-    "file": "vancouver-chai-samosa.webp",
-    "title": "Chai & samosa",
-    "city": "Vancouver",
-    "credit": "Khyber Chai House ordering menu",
-    "width": 550,
-    "height": 550,
-    "source_url": "https://www.ubereats.com/ca/store/khyber-chai-house-436-richards-st/W3ihKJvuWOirQyQJGPkuKw",
-    "checked": "2026-10-29",
-    "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image."
-  },
-  {
     "file": "surrey-malai-boti.webp",
     "title": "Chicken malai boti",
     "city": "Surrey",
@@ -118,30 +96,19 @@
     "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
   },
   {
-    "file": "surrey-cheese-paratha.webp",
-    "title": "Cheese paratha",
+    "file": "surrey-brunch-thali.webp",
+    "title": "Your Way Nashta — guest breakfast table",
     "city": "Surrey",
-    "credit": "Khyber Chai & Grill ordering menu",
-    "width": 659,
-    "height": 440,
-    "source_url": "https://www.ubereats.com/ca/store/khyber-chai-%26-grill/-fQa21L-Up6u-wdznSDwSQ",
+    "credit": "Hijab Qaiser · Google · October 2026",
+    "width": 1200,
+    "height": 900,
+    "source_url": "https://www.google.com/maps/contrib/115428897734404604582",
     "checked": "2026-10-29",
-    "history": "Existing restaurant menu image downloaded and visually checked.",
-    "display_pages": [
-      "/chai/"
-    ],
-    "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
-  },
-  {
-    "file": "social-brunch.jpg",
-    "title": "The Khyber Nashta brunch promotion",
-    "city": "Surrey",
-    "source_url": "https://www.instagram.com/khyber.chaigrill/p/DeI2Q33NMay/",
     "display_pages": [
       "/",
       "/grill/"
     ],
-    "menu_match": "Brunch.pdf: beef qeema, anda ghotala, cholay and classic parathas. Promotion shows these components; not a verified photo of a served order.",
-    "display_note": "CSS window shows food region x230–640,y230–570 of the 640px poster. Outdated address/footer omitted. Other brunch plates have no verified replacement photos."
+    "menu_match": "Fried eggs, aloo chips and parathas visible. Labelled Your Way Nashta, not the qeema/cholay Khyber Nashta.",
+    "history": "Photo selected directly in Khyber Surrey Google Maps gallery; full-resolution copy of the observed guest image, optimized to WebP. No food altered."
   }
 ]

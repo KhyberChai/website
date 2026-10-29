@@ -1,5 +1,15 @@
-/* Additive food photography; scoped to these new sections. */
-.food-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.food-photo-card{margin:0;min-width:0;background:#fff;border:1px solid var(--line)}.food-photo-card img{display:block;width:100%;height:clamp(190px,24vw,330px);object-fit:contain;background:#fff}.food-photo-card figcaption{padding:18px 20px;line-height:1.5;border-top:1px solid var(--line)}.food-photo-card figcaption strong{display:block;font-family:var(--heading);font-size:27px}.food-photo-card figcaption span{display:block;margin-top:7px;font-size:10px;color:#655b51}.nashta-photo-grid{margin:32px 0;grid-template-columns:repeat(3,minmax(0,1fr))}.nashta-photo-grid .food-photo-card img{height:clamp(190px,20vw,270px)}@media(max-width:600px){.food-photo-grid,.nashta-photo-grid{grid-template-columns:1fr;gap:20px}.food-photo-card img,.nashta-photo-grid .food-photo-card img{height:auto;max-height:360px;aspect-ratio:5/4}.food-photo-card figcaption{padding:16px}.food-photo-card figcaption strong{font-size:25px}}
-
-/* Menu-matched brunch promotion: frame the food only; omit poster text and outdated footer. */
-.nashta-menu-photo{max-width:680px;margin:32px 0}.nashta-promotion-window{position:relative;overflow:hidden;aspect-ratio:410/340;background:#fff}.nashta-promotion-window img{position:absolute;width:156.097561%;max-width:none;height:auto;left:-56.097561%;top:-67.647059%;object-fit:initial}
+/* Shared food gallery and brunch photography. Scoped to the added food sections. */
+.food-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px;align-items:start}
+.food-photo-card{margin:0;min-width:0;background:transparent}
+.food-photo-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#f5ecdf}
+.food-photo-card figcaption{padding:14px 0 0;line-height:1.5}
+.food-photo-card figcaption strong{display:block;font-family:var(--heading);font-size:27px;line-height:1.1}
+.food-photo-card figcaption span{display:block;margin-top:6px;font-size:10px;line-height:1.6;color:#75675b}
+.food-photo-section .section-head{align-items:flex-end}
+.nashta-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:35px;align-items:start}
+.nashta-layout .brunch-dishes{margin-top:0;gap:0 26px}
+.nashta-layout .brunch-dishes article{padding:20px 0}
+.nashta-layout .brunch-dishes h3{font-size:29px}
+.nashta-guest-photo img{object-fit:contain}
+@media(max-width:900px){.nashta-layout{grid-template-columns:1fr;gap:28px}}
+@media(max-width:600px){.food-photo-grid{grid-template-columns:1fr;gap:28px}.food-photo-card figcaption strong{font-size:25px}.nashta-layout .brunch-dishes{grid-template-columns:1fr}.nashta-layout .brunch-dishes article{padding:20px 0}}
