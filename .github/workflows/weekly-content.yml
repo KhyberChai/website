@@ -1,0 +1,33 @@
+name: Weekly reviews and social sweep
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 15 * * 1'
+permissions:
+  contents: read
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect candidates and apply approved imports
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GBP_VANCOUVER_PARENT: ${{ vars.GBP_VANCOUVER_PARENT }}
+          GBP_SURREY_PARENT: ${{ vars.GBP_SURREY_PARENT }}
+          IG_VANCOUVER_TOKEN: ${{ secrets.IG_VANCOUVER_TOKEN }}
+          IG_SURREY_TOKEN: ${{ secrets.IG_SURREY_TOKEN }}
+          IG_VANCOUVER_USER_ID: ${{ vars.IG_VANCOUVER_USER_ID }}
+          IG_SURREY_USER_ID: ${{ vars.IG_SURREY_USER_ID }}
+          INSTAGRAM_GRAPH_VERSION: ${{ vars.INSTAGRAM_GRAPH_VERSION }}
+        run: python tools/weekly_refresh.py --apply-approved
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weekly-khyber-content
+          path: weekly-output/
+          retention-days: 14
