@@ -93,6 +93,7 @@ def apply(rows,data):
 def main():
  p=argparse.ArgumentParser();p.add_argument('--days',type=int,default=14);p.add_argument('--apply-approved',action='store_true');p.add_argument('--output',default='weekly-output');args=p.parse_args()
  out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=True)
+ (out/'weekly-upload.zip').unlink(missing_ok=True)
  rows,status=collect(args.days)
  with (out/'candidates.csv').open('w',newline='') as f:
   w=csv.DictWriter(f,fieldnames=FIELDS);w.writeheader();w.writerows(rows)
@@ -113,12 +114,23 @@ def main():
   for name,text in writes.items():(ROOT/name).write_text(text)
   status.append('Approved content applied; HTML review fallbacks synchronized.')
  else:status.append('No approved content changes. Existing website content preserved.')
- # Only publish approved website files; never include tokens, reports or CSV candidates.
- with zipfile.ZipFile(out/'weekly-upload.zip','w',zipfile.ZIP_DEFLATED) as z:
-  for name in ['index.html','chai/index.html','grill/index.html','assets/community-content.json']:
-   z.write(ROOT/name,name)
-  for r in data['photos']:
-   if r.get('approved') and local_image(r.get('image')):z.write(ROOT/'assets'/r['image'],'assets/'+r['image'])
+ if before!=json.dumps(data,sort_keys=True):
+  # Only publish approved website files; never include tokens, reports or CSV candidates.
+  with zipfile.ZipFile(out/'weekly-upload.zip','w',zipfile.ZIP_DEFLATED) as z:
+   for name in ['index.html','chai/index.html','grill/index.html','assets/community-content.json']:
+    z.write(ROOT/name,name)
+   for r in data['photos']:
+    if r.get('approved') and local_image(r.get('image')):z.write(ROOT/'assets'/r['image'],'assets/'+r['image'])
  (out/'REPORT.txt').write_text('\n'.join(status)+'\nCandidates are not automatically approved or published.\n')
- print('\n'.join(status));print('Output: '+str(out))
+ connected=any('fetched ' in line for line in status)
+ errors=any('failed' in line for line in status)
+ changed=before!=json.dumps(data,sort_keys=True)
+ state='UPDATE READY' if changed else ('CONNECTION ERROR' if errors else ('CANDIDATES READY' if rows else ('NO NEW CANDIDATES' if connected else 'NO SOURCES CONNECTED')))
+ summary='# Weekly content refresh: '+state+'\n\n'+str(len(rows))+' candidate items found. '+('Upload ZIP created.' if changed else 'No upload ZIP created because no approved content changed.')+'\n\n'+'\n'.join('- '+line for line in status)+'\n'
+ (out/'SUMMARY.md').write_text(summary)
+ (out/'REPORT.txt').write_text(state+'\n\n'+'\n'.join(status)+'\n'+('Upload ZIP created.' if changed else 'No approved changes; no upload ZIP created.')+'\n')
+ if os.getenv('GITHUB_STEP_SUMMARY'):
+  with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write(summary)
+ if state in ['NO SOURCES CONNECTED','CONNECTION ERROR']:print('::warning::'+state+' — open SUMMARY.md for setup status; no discovery completed for missing/failed sources.')
+ print(summary);print('Output: '+str(out))
 if __name__=='__main__':main()
