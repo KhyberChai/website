@@ -22,17 +22,6 @@
     "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image."
   },
   {
-    "file": "surrey-malai-boti.webp",
-    "title": "Chicken malai boti",
-    "city": "Surrey",
-    "credit": "Khyber Chai & Grill ordering menu",
-    "width": 659,
-    "height": 440,
-    "source_url": "https://www.ubereats.com/ca/store/khyber-chai-%26-grill/-fQa21L-Up6u-wdznSDwSQ",
-    "checked": "2026-10-29",
-    "history": "Existing restaurant listing image downloaded and visually checked; no generated or substituted food image."
-  },
-  {
     "file": "surrey-chicken-handi.webp",
     "title": "Chicken handi",
     "city": "Surrey",
@@ -94,5 +83,18 @@
       "/chai/"
     ],
     "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
+  },
+  {
+    "file": "surrey-food.jpg",
+    "title": "Family platter",
+    "city": "Surrey",
+    "credit": "ZABI · Google",
+    "source": "Existing website family-platter photograph and attribution",
+    "width": 1050,
+    "height": 1400,
+    "display_pages": [
+      "/",
+      "/grill/"
+    ]
   }
 ]
