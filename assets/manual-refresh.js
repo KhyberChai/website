@@ -1,3 +1,5 @@
+// Feed cards use the same approved local records as the wall. Source failure keeps static cards.
+function initializeMoments(){
 // Local content carousel: shuffled on each visit, with native touch scrolling.
 for (const track of document.querySelectorAll('.manual-moments')) {
   if (track.dataset.carouselReady) continue;
@@ -72,3 +74,25 @@ for (const track of document.querySelectorAll('.manual-moments')) {
   else window.addEventListener('resize', update);
   update();
 }
+
+}
+fetch('/assets/community-content.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Feed unavailable');return r.json()}).then(data=>{
+ const isSurrey=location.pathname.startsWith('/grill');
+ const now=new Date().toISOString().slice(0,10);
+ const photos=(data.photos||[]).filter(p=>p.approved===true&&p.title&&p.image&&p.url&&(!p.expires||p.expires>=now)&&(!isSurrey||!p.location_key||p.location_key==='surrey')).slice().sort((a,b)=>(b.published||b.retrieved||'').localeCompare(a.published||a.retrieved||'')).slice(0,12);
+ document.querySelectorAll('.manual-moments').forEach(track=>{
+ const cards=[];
+ for(const p of photos){
+  let url;try{url=new URL(p.url);if(url.protocol!=='https:')continue}catch{continue}
+  const imageUrl=new URL(p.image,new URL('/assets/',location.origin));if(imageUrl.origin!==location.origin||!imageUrl.pathname.startsWith('/assets/'))continue;
+  const card=document.createElement('article');card.className='manual-moment';
+  const link=document.createElement('a');link.href=url.href;link.target='_blank';link.rel='noopener';
+  const image=document.createElement('img');image.src=imageUrl.href;image.alt=p.alt||p.title;image.width=600;image.height=600;image.loading='lazy';link.append(image);
+  const body=document.createElement('div');body.className='manual-moment-body';const title=document.createElement('h3');title.textContent=p.title;
+  const source=document.createElement('a');source.className='text-link';source.href=url.href;source.target='_blank';source.rel='noopener';source.textContent='@'+p.handle+' · Instagram ↗';
+  if(p.published){const date=document.createElement('p');date.className='eyebrow';date.textContent=p.published.slice(0,10);body.append(date)}
+  body.append(title,source);card.append(link,body);cards.push(card);
+ }
+ if(cards.length)track.replaceChildren(...cards);
+ });initializeMoments();
+}).catch(()=>initializeMoments());

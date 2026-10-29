@@ -7,7 +7,7 @@
       "url": "https://www.instagram.com/chtahirmehmood/reel/Dd3GuP9tDD4/",
       "category": "guest",
       "title": "A conversation over chai",
-      "alt": "Tahir Mehmood\u2019s reel cover showing guests at a Khyber table",
+      "alt": "Tahir Mehmood’s reel cover showing guests at a Khyber table",
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-tahir",
@@ -46,7 +46,7 @@
       "url": "https://www.instagram.com/sk.media33/p/DdPqNmfD7JY/",
       "category": "instagram",
       "title": "A little Khyber glow",
-      "alt": "Khyber Chai & Grill\u2019s illuminated logo photographed by SK Media",
+      "alt": "Khyber Chai & Grill’s illuminated logo photographed by SK Media",
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-sk-media",
@@ -59,7 +59,7 @@
       "url": "https://www.instagram.com/m.anumblog/reel/DdYEN8fCMR2/",
       "category": "instagram",
       "title": "A table full of food",
-      "alt": "Anum Khan\u2019s Instagram reel cover showing the Surrey table and dishes",
+      "alt": "Anum Khan’s Instagram reel cover showing the Surrey table and dishes",
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-anum",
@@ -72,7 +72,7 @@
       "url": "https://www.instagram.com/anywherevancouver/p/DcsEUoeG-5k/",
       "category": "instagram",
       "title": "From Vancouver to Surrey",
-      "alt": "Anywhere Vancouver\u2019s Instagram post featuring two Khyber chai cups",
+      "alt": "Anywhere Vancouver’s Instagram post featuring two Khyber chai cups",
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-anywhere-vancouver",
@@ -103,6 +103,21 @@
       "approved": true,
       "source": "Public collaboration visible on @khyber.chaigrill",
       "retrieved": "2026-10-17"
+    },
+    {
+      "id": "biryani-oct23",
+      "image": "social-biryani-oct23.jpg",
+      "name": "Khyber Chai House",
+      "handle": "khyber.chai",
+      "url": "https://www.instagram.com/khyber.chai/reel/De2Bx_SpcYH/",
+      "category": "instagram",
+      "title": "Friday chicken biryani · Vancouver",
+      "alt": "Khyber Chai House chicken biryani Friday-only poster published October 23, 2026",
+      "approved": true,
+      "location_key": "vancouver",
+      "published": "2026-10-23",
+      "retrieved": "2026-10-28",
+      "source": "Public Instagram profile thumbnail; downloaded and visually checked 28 October 2026"
     }
   ],
   "reviews": [
@@ -171,6 +186,28 @@
       "approved": true,
       "source": "Public Google Maps profile, manually observed October 17, 2026",
       "url": "https://www.google.com/maps/place/?q=place_id:ChIJK1TG32rbhVQRJ9A0Xxss09U"
+    },
+    {
+      "id": "seo-bareera",
+      "reviewer": "Bareera Leghari",
+      "excerpt": "Their customer service is honestly amazing.",
+      "location": "Khyber Chai House, Vancouver",
+      "location_key": "vancouver",
+      "approved": true,
+      "source": "Google review excerpt reproduced on Restaurant Guru; checked 28 October 2026",
+      "source_url": "https://pl.restaurantguru.com/Khyber-Chai-House-Vancouver",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14"
+    },
+    {
+      "id": "seo-fazle",
+      "reviewer": "Fazle Elahi Sumon",
+      "excerpt": "Best tea in vancouver, hands down.",
+      "location": "Khyber Chai House, Vancouver",
+      "location_key": "vancouver",
+      "approved": true,
+      "source": "Google review excerpt reproduced on Restaurant Guru; checked 28 October 2026",
+      "source_url": "https://pl.restaurantguru.com/Khyber-Chai-House-Vancouver",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14"
     }
   ],
   "last_import": null,
