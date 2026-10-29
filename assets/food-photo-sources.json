@@ -94,21 +94,5 @@
       "/chai/"
     ],
     "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
-  },
-  {
-    "file": "surrey-brunch-thali.webp",
-    "title": "Your Way Nashta — guest breakfast table",
-    "city": "Surrey",
-    "credit": "Hijab Qaiser · Google · October 2026",
-    "width": 1200,
-    "height": 900,
-    "source_url": "https://www.google.com/maps/contrib/115428897734404604582",
-    "checked": "2026-10-29",
-    "display_pages": [
-      "/",
-      "/grill/"
-    ],
-    "menu_match": "Fried eggs, aloo chips and parathas visible. Labelled Your Way Nashta, not the qeema/cholay Khyber Nashta.",
-    "history": "Photo selected directly in Khyber Surrey Google Maps gallery; full-resolution copy of the observed guest image, optimized to WebP. No food altered."
   }
 ]
