@@ -37,7 +37,9 @@
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-amna",
-      "approved": true
+      "approved": true,
+      "published": "2026-09-19",
+      "location_key": "surrey"
     },
     {
       "image": "wall-sk-media.jpg",
@@ -50,7 +52,9 @@
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-sk-media",
-      "approved": true
+      "approved": true,
+      "published": "2026-09-13",
+      "location_key": "surrey"
     },
     {
       "image": "wall-anum.jpg",
@@ -63,7 +67,9 @@
       "source": "Public collaboration post visible on @khyber.chai",
       "retrieved": "2026-10-04",
       "id": "wall-anum",
-      "approved": true
+      "approved": true,
+      "published": "2026-09-16",
+      "location_key": "surrey"
     },
     {
       "image": "wall-anywhere-vancouver.jpg",
@@ -89,7 +95,9 @@
       "category": "guest",
       "approved": true,
       "source": "Public collaboration visible on @khyber.chaigrill",
-      "retrieved": "2026-10-17"
+      "retrieved": "2026-10-17",
+      "published": "2026-10-05",
+      "location_key": "surrey"
     },
     {
       "id": "wall-halal-eats",
@@ -102,7 +110,9 @@
       "category": "instagram",
       "approved": true,
       "source": "Public collaboration visible on @khyber.chaigrill",
-      "retrieved": "2026-10-17"
+      "retrieved": "2026-10-17",
+      "published": "2026-09-02",
+      "location_key": "surrey"
     },
     {
       "id": "biryani-oct23",
@@ -118,6 +128,20 @@
       "published": "2026-10-23",
       "retrieved": "2026-10-28",
       "source": "Public Instagram profile thumbnail; downloaded and visually checked 28 October 2026"
+    },
+    {
+      "id": "social-brunch-oct5",
+      "image": "social-brunch.jpg",
+      "name": "Khyber Chai & Grill",
+      "handle": "khyber.chaigrill",
+      "url": "https://www.instagram.com/khyber.chaigrill/p/DeI2Q33NMay/",
+      "category": "instagram",
+      "title": "Weekend brunch · Surrey",
+      "alt": "Khyber Chai & Grill weekend brunch poster",
+      "location_key": "surrey",
+      "approved": true,
+      "published": "2026-10-05",
+      "source": "Visible public Instagram grid dated Oct 5; existing local cover visually checked Oct 28, 2026"
     }
   ],
   "reviews": [
@@ -193,7 +217,7 @@
       "excerpt": "Their customer service is honestly amazing.",
       "location": "Khyber Chai House, Vancouver",
       "location_key": "vancouver",
-      "approved": true,
+      "approved": false,
       "source": "Google review excerpt reproduced on Restaurant Guru; checked 28 October 2026",
       "source_url": "https://pl.restaurantguru.com/Khyber-Chai-House-Vancouver",
       "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14"
@@ -204,10 +228,58 @@
       "excerpt": "Best tea in vancouver, hands down.",
       "location": "Khyber Chai House, Vancouver",
       "location_key": "vancouver",
-      "approved": true,
+      "approved": false,
       "source": "Google review excerpt reproduced on Restaurant Guru; checked 28 October 2026",
       "source_url": "https://pl.restaurantguru.com/Khyber-Chai-House-Vancouver",
       "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14"
+    },
+    {
+      "id": "nadia-verified",
+      "reviewer": "Nadia A",
+      "location_key": "vancouver",
+      "location": "Khyber Chai House, Vancouver",
+      "rating": 5,
+      "approved": true,
+      "excerpt": "Our favourite was the pink chai. SO good!!",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJUSS2bRBxhlQRrllHGRZrZ14",
+      "source": "Five-star rating and restaurant address verified directly in Google Maps 28 October 2026",
+      "verified": "2026-10-28"
+    },
+    {
+      "id": "aly-verified",
+      "reviewer": "Aly. M",
+      "location_key": "vancouver",
+      "location": "Khyber Chai House, Vancouver",
+      "rating": 5,
+      "approved": true,
+      "excerpt": "Amazing experience, beautiful ambience, excellent service & yummy food",
+      "url": "https://www.google.com/maps/contrib/102514166004285879170?hl=en-CA",
+      "source": "Five-star rating and restaurant address verified directly in Google Maps 28 October 2026",
+      "verified": "2026-10-28"
+    },
+    {
+      "id": "danish-vancouver",
+      "reviewer": "Danish Butt",
+      "location_key": "vancouver",
+      "location": "Khyber Chai House, Vancouver",
+      "rating": 5,
+      "approved": true,
+      "excerpt": "Awesome place to vibe, beautiful decor and central location.",
+      "url": "https://www.google.com/maps/contrib/117579878746597756624?hl=en-CA",
+      "source": "Five-star rating and restaurant address verified directly in Google Maps 28 October 2026",
+      "verified": "2026-10-28"
+    },
+    {
+      "id": "danish-surrey",
+      "reviewer": "Danish Butt",
+      "location_key": "surrey",
+      "location": "Khyber Chai & Grill, Surrey",
+      "rating": 5,
+      "approved": true,
+      "excerpt": "Excellent service. Delicious food.",
+      "url": "https://www.google.com/maps/contrib/117579878746597756624?hl=en-CA",
+      "source": "Five-star rating and restaurant address verified directly in Google Maps 28 October 2026",
+      "verified": "2026-10-28"
     }
   ],
   "last_import": null,

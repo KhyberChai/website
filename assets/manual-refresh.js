@@ -5,10 +5,7 @@ for (const track of document.querySelectorAll('.manual-moments')) {
   if (track.dataset.carouselReady) continue;
   track.dataset.carouselReady = 'true';
   const cards = [...track.children];
-  for (let i = cards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [cards[i], cards[j]] = [cards[j], cards[i]];
-  }
+
   track.append(...cards);
   track.id ||= 'khyber-moments-' + [...document.querySelectorAll('.manual-moments')].indexOf(track);
   track.tabIndex = 0;
@@ -79,7 +76,7 @@ for (const track of document.querySelectorAll('.manual-moments')) {
 fetch('/assets/community-content.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Feed unavailable');return r.json()}).then(data=>{
  const isSurrey=location.pathname.startsWith('/grill');
  const now=new Date().toISOString().slice(0,10);
- const photos=(data.photos||[]).filter(p=>p.approved===true&&p.title&&p.image&&p.url&&(!p.expires||p.expires>=now)&&(!isSurrey||!p.location_key||p.location_key==='surrey')).slice().sort((a,b)=>(b.published||b.retrieved||'').localeCompare(a.published||a.retrieved||'')).slice(0,12);
+ const photos=(data.photos||[]).filter(p=>p.approved===true&&p.title&&p.image&&p.url&&(!p.expires||p.expires>=now)&&(!isSurrey||!p.location_key||p.location_key==='surrey')).slice().sort((a,b)=>(b.published||'').localeCompare(a.published||'')).slice(0,12);
  document.querySelectorAll('.manual-moments').forEach(track=>{
  const cards=[];
  for(const p of photos){

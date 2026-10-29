@@ -105,7 +105,7 @@ def main():
   writes={'assets/community-content.json':json.dumps(data,ensure_ascii=False,indent=2)+'\n'}
   for name,key in [('index.html','all'),('chai/index.html','vancouver'),('grill/index.html','surrey')]:
    s=(ROOT/name).read_text();selected=[]
-   for loc in (LOCATIONS if key=='all' else [key]):selected += [r for r in data['reviews'] if r.get('approved') and r.get('location_key')==loc][-3:]
+   for loc in (LOCATIONS if key=='all' else [key]):selected += [r for r in data['reviews'] if r.get('approved') and r.get('rating')==5 and r.get('location_key')==loc][-4:]
    old=re.search(r'<section class="wrap section reviews".*?</section>',s,re.S)
    if not old:raise ValueError('Review section missing in '+name)
    block=old.group();start=block.index('<div class="locations">');block=block[:start]+'<div class="locations">'+''.join(review_html(r) for r in selected)+'</div></section>'
