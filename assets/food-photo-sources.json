@@ -85,13 +85,16 @@
     "availability_note": "Owner confirmed same dishes offered in Vancouver. Photo source remains Surrey; captions retain provenance."
   },
   {
-    "file": "surrey-food.jpg",
-    "title": "Family platter",
+    "file": "surrey-bun-kebab.webp",
+    "title": "Anday Wala Burger (aka Bun Kebab)",
     "city": "Surrey",
-    "credit": "ZABI · Google",
-    "source": "Existing website family-platter photograph and attribution",
-    "width": 1050,
-    "height": 1400,
+    "credit": "Khyber Chai & Grill ordering menu",
+    "source_url": "https://www.ubereats.com/ca/store/khyber-chai-%26-grill/-fQa21L-Up6u-wdznSDwSQ",
+    "original_url": "https://tb-static.uber.com/prod/image-proc/processed_images/c28bf274bd9fe8646375f09a9c0c4890/d03e52b3c8af19d8fa8222e23efd9cfa.jpeg",
+    "checked": "2026-10-29",
+    "selection_reason": "Marked #2 most liked in live Uber Eats featured items",
+    "width": 659,
+    "height": 440,
     "display_pages": [
       "/",
       "/grill/"
