@@ -31,3 +31,67 @@ function showPhotos(){if(!wall)return;const grid=wall.querySelector('.wall-grid'
 if(wall){wall.querySelectorAll('[data-wall-filter]').forEach(button=>button.addEventListener('click',()=>{activeFilter=button.dataset.wallFilter;wall.querySelectorAll('[data-wall-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));showPhotos();}));wall.querySelector('[data-wall-refresh]')?.addEventListener('click',showPhotos);wall.addEventListener('click',e=>{const button=e.target.closest('[data-wall-photo]');if(!button||!wallDialog)return;const card=button.closest('.wall-card'),photo=button.querySelector('img'),image=wallDialog.querySelector('img');image.src=photo.src;image.alt=photo.alt;wallDialog.querySelector('h3').textContent=card.querySelector('h3').textContent;wallDialog.querySelector('a').href=card.querySelector('.wall-source').href;wallDialog.showModal();});if(wallDialog){wallDialog.querySelector('.wall-close').addEventListener('click',()=>wallDialog.close());wallDialog.addEventListener('click',e=>{if(e.target===wallDialog){const r=wallDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)wallDialog.close();}});}showPhotos();}
 function showReviews(records){const section=document.querySelector('[data-review-location]');if(!section)return;const key=section.dataset.reviewLocation;const eligible=records.filter(r=>r.approved===true&&Number(r.rating)===5&&r.excerpt&&r.reviewer&&safeUrl(r.url)&&(key==='all'||r.location_key===key));if(!eligible.length){section.hidden=true;return;}section.hidden=false;const selected=key==='all'?['vancouver','surrey'].flatMap(locationKey=>shuffled(eligible.filter(r=>r.location_key===locationKey)).slice(0,4)):shuffled(eligible).slice(0,4),container=document.createElement('div');container.className='locations';selected.forEach(r=>{const figure=document.createElement('figure');figure.className='location-card';figure.style.margin='0';const stars=document.createElement('p');stars.className='review-stars';const rating=5;stars.setAttribute('aria-label',`${rating} out of 5 stars`);stars.textContent='★'.repeat(rating)+'☆'.repeat(5-rating);const quote=document.createElement('blockquote');quote.textContent=`“${r.excerpt}”`;const attribution=document.createElement('figcaption');attribution.className='review-attribution';const link=document.createElement('a');link.href=safeUrl(r.url);link.target='_blank';link.rel='noopener';link.textContent=`${r.reviewer} · Google review`;const locationName=document.createElement('div');locationName.textContent=r.location;attribution.append(link,locationName);if(Number.isFinite(Number(r.rating))&&Number(r.rating)>=1&&Number(r.rating)<=5)figure.append(stars);figure.append(quote,attribution);container.append(figure);});section.querySelector('.locations,.review-single')?.replaceWith(container);}
 fetch(communitySource,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Community content unavailable');return r.json();}).then(data=>{photoPoolReady=true;photoPool=(data.photos||[]).filter(p=>p.approved===true&&(!p.expires||p.expires>=new Date().toISOString().slice(0,10))&&p.image&&p.title&&p.handle&&safeUrl(p.url));showPhotos();showReviews(data.reviews||[]);}).catch(()=>{/* Verified static content remains available if an update cannot load. */});
+
+
+/* Khyber GA4 action tracking v1: clicks only, never purchases or confirmed bookings. */
+(() => {
+  if (window.__khyberActionTrackingV1) return;
+  window.__khyberActionTrackingV1 = true;
+
+  function classify(href, pageUrl) {
+    let url, page;
+    try { page = new URL(pageUrl); url = new URL(href, page); } catch { return null; }
+    const local = ['khyberchai.com', 'www.khyberchai.com'].includes(url.hostname);
+    if (url.protocol === 'tel:') {
+      const number = url.pathname.replace(/\D/g, '');
+      const location = ['12365862424', '2365862424'].includes(number) ? 'vancouver'
+        : ['16045930080', '6045930080'].includes(number) ? 'surrey' : null;
+      return location ? { event: 'phone_click', location, provider: 'telephone' } : null;
+    }
+    if (!['https:', 'http:'].includes(url.protocol)) return null;
+    if ((local && /^\/order\/?$/.test(url.pathname)) || url.hostname === 'khyberchai.square.site') {
+      return { event: 'order_click', location: 'vancouver', provider: 'square' };
+    }
+    if (url.hostname === 'khyber-chai-grill.square.site') {
+      return { event: 'order_click', location: 'surrey', provider: 'square' };
+    }
+    if (['www.ubereats.com', 'ubereats.com'].includes(url.hostname)) {
+      if (url.pathname.includes('W3ihKJvuWOirQyQJGPkuKw')) return { event: 'order_click', location: 'vancouver', provider: 'uber_eats' };
+      if (url.pathname.includes('-fQa21L-Up6u-wdznSDwSQ')) return { event: 'order_click', location: 'surrey', provider: 'uber_eats' };
+    }
+    if ((local && url.pathname.startsWith('/grill') && url.hash === '#reservation')
+      || url.hostname === 'khyber-reservations.shizad281016.chatgpt.site') {
+      return { event: 'reservation_click', location: 'surrey', provider: 'khyber_reservations' };
+    }
+    if (['www.google.com', 'google.com', 'maps.google.com'].includes(url.hostname)
+      && /^\/maps\/(search|dir)\/?$/.test(url.pathname)) {
+      const destination = (url.searchParams.get('query') || url.searchParams.get('destination') || '').toLowerCase();
+      const location = /436|richards/.test(destination) ? 'vancouver'
+        : /6638|152a/.test(destination) ? 'surrey' : null;
+      return location ? { event: 'directions_click', location, provider: 'google_maps' } : null;
+    }
+    return null;
+  }
+
+  document.addEventListener('click', event => {
+    if (event.button !== 0) return;
+    const link = event.target?.closest?.('a[href]');
+    if (!link) return;
+    const action = classify(link.getAttribute('href'), window.location.href);
+    if (!action || typeof window.gtag !== 'function') return;
+    const sourcePage = window.location.pathname.startsWith('/grill') ? 'surrey'
+      : window.location.pathname.startsWith('/chai') ? 'vancouver' : 'home';
+    const placement = link.closest('.mobile-action') ? 'mobile_bar'
+      : link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : 'main';
+    try {
+      window.gtag('event', action.event, {
+        send_to: 'G-X0MJYQ4XEZ',
+        restaurant_location: action.location,
+        action_provider: action.provider,
+        source_page: sourcePage,
+        link_placement: placement
+      });
+    } catch { /* Analytics must never interrupt the customer's action. */ }
+  });
+})();
+
