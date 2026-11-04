@@ -1,13 +1,13 @@
 /* Surrey-only offer: uses the website's existing brand variables and type. */
-.surrey-bogo{display:grid;grid-template-columns:1fr;gap:0;max-width:560px;margin:22px 0 24px;border:1px solid var(--line,#d9ccba);background:transparent;color:var(--ink,#29241e);text-decoration:none;overflow:hidden;transition:border-color .18s ease}
-.surrey-bogo-copy{display:grid;grid-template-columns:1fr auto;gap:9px 16px;padding:18px 20px}
+.surrey-bogo{display:grid;grid-template-columns:minmax(270px,.8fr) minmax(0,1.4fr);align-items:center;gap:24px;max-width:none;margin:0;border:1px solid var(--line,#d9ccba);background:transparent;color:var(--ink,#29241e);text-decoration:none;overflow:hidden;transition:border-color .18s ease}
+.surrey-offers{padding-top:0;padding-bottom:36px}.surrey-bogo-copy{display:grid;grid-template-columns:1fr auto;gap:9px 16px;padding:18px 20px}
 .surrey-bogo-label{grid-column:1/-1;font-size:10px;line-height:1.4;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red,#9e2b19)}
 .surrey-bogo-copy strong{grid-column:1/-1;font-family:var(--heading,'Barlow Condensed',sans-serif);font-size:36px;font-weight:800;line-height:1;color:var(--red,#9e2b19)}
 .surrey-bogo-description{grid-column:1/-1;font-size:12px;line-height:1.65;max-width:420px;color:#6d6257}
 .surrey-bogo-cta{display:inline-flex;align-items:center;gap:24px;justify-self:start;border-bottom:1px solid currentColor;padding-bottom:3px;font-size:12px;font-weight:700;color:var(--red,#9e2b19)}
 .surrey-bogo-terms{align-self:center;font-size:10px;color:#6d6257}
-.surrey-bogo>img{display:block;width:100%;height:auto;aspect-ratio:2048/683;object-fit:contain;border-top:1px solid var(--line,#d9ccba)}
+.surrey-bogo>img{display:block;width:100%;height:auto;aspect-ratio:2048/683;object-fit:contain;border:0}
 .surrey-bogo:hover{border-color:var(--red,#9e2b19)}
 .surrey-bogo:focus-visible{outline:3px solid var(--red,#9e2b19);outline-offset:5px}
-@media(max-width:600px){.surrey-bogo-copy{padding:15px 16px;gap:8px 12px}.surrey-bogo-copy strong{font-size:32px}.surrey-bogo-description{font-size:12px}.surrey-bogo{margin-top:18px;margin-bottom:20px}}
+@media(max-width:760px){.surrey-bogo{grid-template-columns:1fr;gap:0}.surrey-offers{padding-bottom:24px}.surrey-bogo-copy{padding:15px 16px;gap:8px 12px}.surrey-bogo-copy strong{font-size:32px}.surrey-bogo-description{font-size:12px}.surrey-bogo{margin:0}}
 @media(prefers-reduced-motion:reduce){.surrey-bogo{transition:none}}
