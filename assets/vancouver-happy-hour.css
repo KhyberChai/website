@@ -1,0 +1,16 @@
+/* Vancouver-only offer, using the shared website brand and typography. */
+.vancouver-offers{padding-top:0;padding-bottom:36px}
+.vancouver-offer{display:grid;grid-template-columns:minmax(275px,.8fr) minmax(0,1.4fr);align-items:center;gap:24px;border:1px solid var(--line,#d9ccba);color:var(--ink,#29241e);text-decoration:none;overflow:hidden;transition:border-color .18s ease}
+.vancouver-offer-copy{display:grid;gap:10px;padding:22px 24px}
+.vancouver-offer-label{font-size:10px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--red,#9e2b19)}
+.vancouver-offer-copy strong{font-family:var(--heading,'Barlow Condensed',sans-serif);font-weight:800;font-size:42px;line-height:.98;color:var(--red,#9e2b19)}
+.vancouver-offer-items{font-weight:700;font-size:14px}
+.vancouver-offer-hours{font-size:12px;line-height:1.6;font-weight:700;color:var(--red,#9e2b19)}
+.vancouver-offer-description{font-size:12px;line-height:1.65;color:#6d6257}
+.vancouver-offer-terms{font-size:10px;line-height:1.65;color:#6d6257}
+.vancouver-offer-cta{display:inline-flex;justify-self:start;align-items:center;gap:24px;border-bottom:1px solid currentColor;padding-bottom:3px;font-size:12px;font-weight:700;color:var(--red,#9e2b19)}
+.vancouver-offer>img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain}
+.vancouver-offer:hover{border-color:var(--red,#9e2b19)}
+.vancouver-offer:focus-visible{outline:3px solid var(--red,#9e2b19);outline-offset:5px}
+@media(max-width:760px){.vancouver-offer{grid-template-columns:1fr;gap:0}.vancouver-offer-copy{padding:18px 20px}.vancouver-offer-copy strong{font-size:36px}.vancouver-offers{padding-bottom:24px}}
+@media(prefers-reduced-motion:reduce){.vancouver-offer{transition:none}}
