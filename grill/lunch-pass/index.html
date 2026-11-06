@@ -24,7 +24,19 @@
 .lunch-menu table{width:100%;margin-top:1.4rem;border-collapse:collapse;font-size:.9rem}
 .lunch-menu th,.lunch-menu td{text-align:left;vertical-align:top;padding:.65rem .4rem;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 .lunch-menu thead th{color:var(--teal)}
-@media(max-width:620px){.lunch-plans .locations{grid-template-columns:1fr}.lunch-plans .location-card{padding:24px}}
+.lunch-menu .dish-label{display:none}
+@media(max-width:620px){
+  .lunch-plans .locations{grid-template-columns:1fr}
+  .lunch-plans .location-card{padding:24px}
+  .lunch-menu table{display:block;font-size:1rem}
+  .lunch-menu thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .lunch-menu tbody{display:grid;gap:.75rem}
+  .lunch-menu tbody tr{display:block;padding:1rem;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .lunch-menu tbody th,.lunch-menu td{display:block;padding:0;border:0;overflow-wrap:normal}
+  .lunch-menu tbody th{font-size:1.125rem}
+  .lunch-menu td{margin-top:.5rem}
+  .lunch-menu .dish-label{display:block;color:var(--teal);font-size:.75rem;font-weight:700}
+}
 </style>
 </head>
 <body>
@@ -99,12 +111,24 @@
 </section>
 <section class="wrap section lunch-menu">
 <h2>Lunch Menu</h2>
-<table>
-<thead><tr><th scope="col">Day</th><th scope="col">Non-vegetarian</th><th scope="col">Vegetarian</th></tr></thead>
-<tbody>
-<tr><th scope="row">Tuesday</th><td>Butter Chicken with Rice</td><td>Butter Paneer with Rice</td></tr>
-<tr><th scope="row">Wednesday</th><td>Kebab Masala with Rice</td><td>Kadai Paneer with Rice</td></tr>
-<tr><th scope="row">Thursday</th><td>Chicken Biryani</td><td>Daal Chawal</td></tr>
+<table role="table">
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Day</th><th scope="col" role="columnheader">Non-vegetarian</th><th scope="col" role="columnheader">Vegetarian</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row">
+  <th scope="row" role="rowheader">Tuesday</th>
+  <td role="cell"><span class="dish-label" aria-hidden="true">Non-vegetarian</span>Butter Chicken with Rice</td>
+  <td role="cell"><span class="dish-label" aria-hidden="true">Vegetarian</span>Butter Paneer with Rice</td>
+</tr>
+<tr role="row">
+  <th scope="row" role="rowheader">Wednesday</th>
+  <td role="cell"><span class="dish-label" aria-hidden="true">Non-vegetarian</span>Kebab Masala with Rice</td>
+  <td role="cell"><span class="dish-label" aria-hidden="true">Vegetarian</span>Kadai Paneer with Rice</td>
+</tr>
+<tr role="row">
+  <th scope="row" role="rowheader">Thursday</th>
+  <td role="cell"><span class="dish-label" aria-hidden="true">Non-vegetarian</span>Chicken Biryani</td>
+  <td role="cell"><span class="dish-label" aria-hidden="true">Vegetarian</span>Daal Chawal</td>
+</tr>
 </tbody>
 </table>
 </section>
