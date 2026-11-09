@@ -106,3 +106,20 @@
 @media(max-width:1000px){.manual-moment{flex-basis:calc((100% - 20px)/2)}}
 @media(max-width:600px){.manual-moments{gap:14px}.manual-moment{flex-basis:86%}.manual-moment img{aspect-ratio:4/3}.moments-controls{justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){.manual-moments{scroll-behavior:auto}}
+
+/* Keep the brunch plates in view at every width. */
+.nashta-photos {
+  margin-top: 16px;
+}
+.nashta-photos img {
+  display: block;
+  aspect-ratio: 7 / 5;
+  height: auto;
+  object-position: center 65%;
+}
+@media (max-width: 600px) {
+  .nashta-photos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+}
