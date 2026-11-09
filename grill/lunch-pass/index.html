@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#9e2b19">
 <title>Khyber Lunch Pass | Khyber Chai &amp; Grill Surrey</title>
-<meta name="description" content="Choose a Khyber Lunch Pass for Surrey pickup or local office delivery. Lunch is served Tuesday through Thursday.">
+<meta name="description" content="Preorder a single lunch, Weekly Pass or 12-Lunch Pass for Surrey pickup or office delivery. Order online, by phone or by email before your service date.">
 <link rel="canonical" href="https://www.khyberchai.com/grill/lunch-pass/">
 <link rel="stylesheet" href="/assets/styles.css">
 <link rel="stylesheet" href="/assets/seo-update.css">
@@ -14,20 +14,31 @@
 .lunch-hero .photo-main{aspect-ratio:1.25}
 .lunch-hero .lead + .lead{margin-top:.55rem}
 .lunch-plans{padding-top:40px;padding-bottom:35px}
-.lunch-plans .location-card{min-height:0}
-.lunch-plans .location-card h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:.5rem}
-.lunch-plans .buttons{display:grid;gap:.65rem;margin-top:auto;padding-top:1.25rem}
-.lunch-plans .lunch-buy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem}
+.lunch-plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.lunch-plans .lunch-plan-card{min-width:0;min-height:0;padding:clamp(16px,2.2vw,30px);background:#f0e5d4;border:1px solid var(--line)}
+.lunch-plans .lunch-plan-card h3{font-size:clamp(1.65rem,2.7vw,2.65rem);line-height:1.1;margin:0 0 .5rem}
+.lunch-plan-card > p{margin:0 0 1.15rem}
+.lunch-plan-options{display:grid;gap:1rem;margin-top:auto}
+.lunch-choice h4{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:0 0 .4rem}
+.lunch-choice-buttons{display:grid;gap:.45rem}
+.lunch-plans .lunch-buy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.45rem;min-height:44px;width:100%;padding:.55rem .7rem;text-align:left}
 .lunch-plans .lunch-buy span{text-align:right;font-variant-numeric:tabular-nums}
 .lunch-plans .lunch-buy:hover span{transform:none}
-.lunch-single h2{font-size:2rem;margin-bottom:.6rem}
+.lunch-plans .lunch-buy.outline:hover{background:var(--red);color:var(--cream)}
+.lunch-order-rules{max-width:70ch;margin:0 0 1.35rem}
+.lunch-order-rules p + p{margin-top:.45rem}
+.lunch-order-rules a{color:var(--red);text-decoration:underline;text-underline-offset:.15em}
+@media(max-width:800px){
+  .lunch-plan-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(min-width:421px) and (max-width:800px){
+  .lunch-plan-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 .lunch-menu table{width:100%;margin-top:1.4rem;border-collapse:collapse;font-size:.9rem}
 .lunch-menu th,.lunch-menu td{text-align:left;vertical-align:top;padding:.65rem .4rem;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 .lunch-menu thead th{color:var(--teal)}
 .lunch-menu .dish-label{display:none}
 @media(max-width:620px){
-  .lunch-plans .locations{grid-template-columns:1fr}
-  .lunch-plans .location-card{padding:24px}
   .lunch-menu table{display:block;font-size:1rem}
   .lunch-menu thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
   .lunch-menu tbody{display:grid;gap:.75rem}
@@ -61,7 +72,7 @@
         <a href="/grill/#menu">Our menus</a>
         <a href="/grill/#wall">The wall</a>
         <a class="optional" href="/grill/#inquiry">Catering</a>
-      <a href="https://khyber-chai-grill.square.site">Order Now</a></nav>
+      <a href="https://khyber-chai-grill.square.site">Surrey Online Menu</a></nav>
     </div>
   </header>
 
@@ -74,7 +85,7 @@
     <p class="seo-tagline">Your lunch. Sorted.</p>
     <p class="lead">Rice bowl, salad, samosa or spring rolls, and gulab jamun.</p>
     <p class="lead">Starting November 10, 2026.</p>
-    <div class="actions"><a class="button" href="#passes">Choose a pass<span aria-hidden="true">↓</span></a></div>
+    <div class="actions"><a class="button" href="#passes">Preorder lunch<span aria-hidden="true">↓</span></a></div>
   </div>
   <div class="hero-media">
     <div class="photo-main">
@@ -84,30 +95,74 @@
   </div>
 </section>
 <section class="wrap section lunch-plans" id="passes">
-<div class="section-head"><div><p class="eyebrow">Pickup or office delivery</p><h2>Choose your pass.</h2></div></div>
-<div class="locations">
-<article class="location-card">
-<h2>Weekly Pass</h2>
-<p>3 lunches · Tuesday, Wednesday and Thursday</p>
-<div class="buttons">
-<a class="button lunch-buy" aria-label="Buy Weekly Pass for pickup, 27 dollars" href="https://square.link/u/IjMCy9WG?src=webqr">Buy for pickup <span>$27</span></a>
-<a class="button lunch-buy" aria-label="Buy Weekly Pass for delivery, 33 dollars" href="https://square.link/u/dw4SPv29?src=webqr">Buy for delivery <span>$33</span></a>
-</div>
-</article>
-<article class="location-card">
-<h2>12-Lunch Pass</h2>
-<p>12 lunches · 4 service weeks</p>
-<div class="buttons">
-<a class="button lunch-buy" aria-label="Buy 12-Lunch Pass for pickup, 96 dollars" href="https://square.link/u/kqFEWdlq?src=webqr">Buy for pickup <span>$96</span></a>
-<a class="button lunch-buy" aria-label="Buy 12-Lunch Pass for delivery, 120 dollars" href="https://square.link/u/i7WkiPU9?src=webqr">Buy for delivery <span>$120</span></a>
-</div>
-</article>
-</div>
-<p class="menu-note">Checkout is through Square. Office delivery is available within 2 km. Prices are in CAD before tax. Vegetarian and non-vegetarian meals are the same price.</p>
-</section>
-<section class="wrap lunch-single">
-<h2>Try One Lunch</h2>
-<p>$10 pickup · $12 delivery. <a class="text-link" href="tel:+16045930080">Call 604-593-0080 to order.</a></p>
+  <div class="section-head"><div><p class="eyebrow">Advance orders required</p><h2>Choose your lunch.</h2></div></div>
+  <div class="lunch-order-rules">
+    <p>Place your order <strong>before your pickup or delivery date</strong>. Same-day orders and walk-in purchases are unavailable.</p>
+    <p>Preorder online below, call <a href="tel:+16045930080">604-593-0080</a>, or email <a href="mailto:inquiry@khyberchai.com">inquiry@khyberchai.com</a>.</p>
+  </div>
+  <div class="lunch-plan-grid">
+    <article class="location-card lunch-plan-card">
+      <h3>Single Lunch</h3>
+      <p>1 lunch · Tuesday, Wednesday or Thursday</p>
+      <div class="lunch-plan-options">
+        <div class="lunch-choice">
+          <h4>Non-Vegetarian</h4>
+          <div class="lunch-choice-buttons">
+            <a class="button lunch-buy" data-checkout="single-non-veg-pickup" href="https://square.link/u/YMB0SFAD" aria-label="Preorder Single Lunch, Non-Vegetarian, Pickup, 10 dollars">Pickup <span>$10</span></a>
+            <a class="button lunch-buy" data-checkout="single-non-veg-delivery" href="https://square.link/u/4g310QI1" aria-label="Preorder Single Lunch, Non-Vegetarian, Delivery, 12 dollars">Delivery <span>$12</span></a>
+          </div>
+        </div>
+        <div class="lunch-choice">
+          <h4>Vegetarian</h4>
+          <div class="lunch-choice-buttons">
+            <a class="button outline lunch-buy" data-checkout="single-veg-pickup" href="https://square.link/u/nuYNripu" aria-label="Preorder Single Lunch, Vegetarian, Pickup, 10 dollars">Pickup <span>$10</span></a>
+            <a class="button outline lunch-buy" data-checkout="single-veg-delivery" href="https://square.link/u/aIFzsklm" aria-label="Preorder Single Lunch, Vegetarian, Delivery, 12 dollars">Delivery <span>$12</span></a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="location-card lunch-plan-card">
+      <h3>Weekly Pass</h3>
+      <p>3 lunches · Tuesday through Thursday</p>
+      <div class="lunch-plan-options">
+        <div class="lunch-choice">
+          <h4>Non-Vegetarian</h4>
+          <div class="lunch-choice-buttons">
+            <a class="button lunch-buy" data-checkout="weekly-non-veg-pickup" href="https://square.link/u/IjMCy9WG?src=webqr" aria-label="Preorder Weekly Pass, Non-Vegetarian, Pickup, 27 dollars">Pickup <span>$27</span></a>
+            <a class="button lunch-buy" data-checkout="weekly-non-veg-delivery" href="https://square.link/u/dw4SPv29?src=webqr" aria-label="Preorder Weekly Pass, Non-Vegetarian, Delivery, 33 dollars">Delivery <span>$33</span></a>
+          </div>
+        </div>
+        <div class="lunch-choice">
+          <h4>Vegetarian</h4>
+          <div class="lunch-choice-buttons">
+            <a class="button outline lunch-buy" data-checkout="weekly-veg-pickup" href="https://square.link/u/SCGuipFA" aria-label="Preorder Weekly Pass, Vegetarian, Pickup, 27 dollars">Pickup <span>$27</span></a>
+            <a class="button outline lunch-buy" data-checkout="weekly-veg-delivery" href="https://square.link/u/1kAkQlE9" aria-label="Preorder Weekly Pass, Vegetarian, Delivery, 33 dollars">Delivery <span>$33</span></a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="location-card lunch-plan-card">
+      <h3>12-Lunch Pass</h3>
+      <p>12 lunches · 4 service weeks</p>
+      <div class="lunch-plan-options">
+        <div class="lunch-choice">
+          <h4>Non-Vegetarian</h4>
+          <div class="lunch-choice-buttons">
+            <a class="button lunch-buy" data-checkout="12-lunch-non-veg-pickup" href="https://square.link/u/kqFEWdlq?src=webqr" aria-label="Preorder 12-Lunch Pass, Non-Vegetarian, Pickup, 96 dollars">Pickup <span>$96</span></a>
+            <a class="button lunch-buy" data-checkout="12-lunch-non-veg-delivery" href="https://square.link/u/i7WkiPU9?src=webqr" aria-label="Preorder 12-Lunch Pass, Non-Vegetarian, Delivery, 120 dollars">Delivery <span>$120</span></a>
+          </div>
+        </div>
+        <div class="lunch-choice">
+          <h4>Vegetarian</h4>
+          <div class="lunch-choice-buttons">
+            <a class="button outline lunch-buy" data-checkout="12-lunch-veg-pickup" href="https://square.link/u/TdHQb5Mk" aria-label="Preorder 12-Lunch Pass, Vegetarian, Pickup, 96 dollars">Pickup <span>$96</span></a>
+            <a class="button outline lunch-buy" data-checkout="12-lunch-veg-delivery" href="https://square.link/u/q5VlfDhh" aria-label="Preorder 12-Lunch Pass, Vegetarian, Delivery, 120 dollars">Delivery <span>$120</span></a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <p class="menu-note">Online payments are processed through Square. Your meal choice applies to every lunch in your pass. Office delivery is available within 2 km of Khyber Chai &amp; Grill. Prices are in CAD before tax.</p>
 </section>
 <section class="wrap section lunch-menu">
 <h2>Lunch Menu</h2>
