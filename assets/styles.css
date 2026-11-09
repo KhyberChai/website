@@ -107,19 +107,22 @@
 @media(max-width:600px){.manual-moments{gap:14px}.manual-moment{flex-basis:86%}.manual-moment img{aspect-ratio:4/3}.moments-controls{justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){.manual-moments{scroll-behavior:auto}}
 
-/* Keep the brunch plates in view at every width. */
+.nashta-feature {
+  margin-top: 35px;
+}
 .nashta-photos {
-  margin-top: 16px;
+  display: grid;
+  gap: 22px;
+  min-width: 0;
 }
-.nashta-photos img {
+.table-grid .nashta-photos .editorial-photo img {
   display: block;
-  aspect-ratio: 7 / 5;
   height: auto;
+  aspect-ratio: 7 / 5;
   object-position: center 65%;
+  border-radius: 12px;
 }
-@media (max-width: 600px) {
-  .nashta-photos {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
-  }
+.table-grid .nashta-photos .nashta-lead img {
+  aspect-ratio: 6 / 5;
+  border-radius: 32% 32% 10px 10px / 26% 26% 10px 10px;
 }
