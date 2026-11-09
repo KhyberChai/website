@@ -107,66 +107,47 @@
 @media(max-width:600px){.manual-moments{gap:14px}.manual-moment{flex-basis:86%}.manual-moment img{aspect-ratio:4/3}.moments-controls{justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){.manual-moments{scroll-behavior:auto}}
 
-.nashta-feature {
-  align-items: start;
-  margin-top: 35px;
-}
-.nashta-copy,
-.nashta-aside {
+.nashta-pairs {
   display: grid;
-  gap: 24px;
+  gap: 28px;
+  margin-top: 26px;
+}
+.nashta-row {
+  align-items: start;
+  row-gap: 20px;
+}
+.nashta-pair-copy {
   min-width: 0;
 }
-.nashta-feature .dish-list article + article {
-  padding-block: 18px;
-}
-.nashta-feature .dish-list article:last-child {
-  padding-bottom: 0;
-}
-.nashta-feature .dish-list h3 {
+.nashta-row .dish-list h3 {
   font-size: clamp(30px, 3.2vw, 39px);
 }
-.nashta-feature .dish-list p {
+.nashta-row .dish-list p {
   max-width: 52ch;
 }
-.nashta-actions .actions {
-  margin-top: 0;
+.nashta-row .dish-list article:last-child {
+  padding-bottom: 0;
 }
-.table-grid.nashta-feature .editorial-photo img {
+.nashta-row .nashta-actions .actions {
+  margin-top: 20px;
+}
+.table-grid.nashta-row .editorial-photo img {
   display: block;
   height: auto;
-  object-position: center 65%;
+  aspect-ratio: 5 / 3;
+  object-position: center 70%;
 }
-.table-grid.nashta-feature .nashta-lead img {
-  aspect-ratio: 9 / 10;
-}
-.table-grid.nashta-feature .nashta-support img {
-  aspect-ratio: 16 / 9;
+.table-grid.nashta-row .nashta-support img {
   border-radius: 12px;
 }
 @media (max-width: 760px) {
-  .nashta-feature {
+  .nashta-row {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "lead" "dishes" "support" "actions";
-    gap: 24px;
   }
-  .nashta-copy,
-  .nashta-aside {
-    display: contents;
+  .nashta-row .nashta-lead {
+    grid-row: 1;
   }
-  .nashta-feature .dish-list {
-    grid-area: dishes;
-  }
-  .nashta-lead {
-    grid-area: lead;
-  }
-  .nashta-support {
-    grid-area: support;
-  }
-  .nashta-actions {
-    grid-area: actions;
-  }
-  .table-grid.nashta-feature .nashta-lead img {
-    aspect-ratio: 6 / 5;
+  .table-grid.nashta-row .nashta-lead img {
+    aspect-ratio: 4 / 3;
   }
 }
