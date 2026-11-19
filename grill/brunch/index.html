@@ -9,6 +9,8 @@
   <link rel="canonical" href="https://www.khyberchai.com/grill/brunch/">
   <link rel="icon" href="/assets/grill-logo.png">
   <link rel="stylesheet" href="/assets/styles.css?v=nashta-arch-20261108">
+  <link rel="stylesheet" href="/assets/seo-update.css">
+  <script defer src="/assets/app.js?v=ga4-actions-1"></script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Halal Pakistani Brunch &amp; Nashta in Surrey | Khyber Chai &amp; Grill">
   <meta property="og:description" content="Join Khyber Chai &amp; Grill in Surrey for halal Pakistani brunch on Saturdays and Sundays, 11 AM–3 PM. Explore Peshawari nashta and book a table.">
@@ -18,19 +20,30 @@
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js',new Date()); gtag('config','G-X0MJYQ4XEZ');</script>
   <style>
     .brunch-editorial h1{font:800 clamp(44px,6vw,85px)/.96 var(--heading);margin:20px 0;overflow-wrap:break-word}
-    .brunch-back{min-height:40px;padding:10px 14px;white-space:nowrap}
-    @media(max-width:380px){.brunch-back{padding-inline:9px;font-size:11px}}
+    .brunch-editorial::before{content:none}
+    @media(max-width:760px){.header .nav{flex-wrap:wrap;justify-content:flex-start;column-gap:14px;row-gap:0}}
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="topbar">Chai ho jaye? &nbsp; • &nbsp; Vancouver &amp; Surrey</div>
   <header class="header">
     <div class="wrap header-inner">
-      <a class="brand" href="/grill/">
-        <img src="/assets/grill-logo.png" alt="" width="58" height="58">
-        <span class="brand-word">KHYBER<small>CHAI &amp; GRILL</small></span>
+      <a href="/" class="brand" aria-label="Khyber home">
+        <img src="/assets/grill-logo.png" alt="Khyber logo" width="58" height="58">
+        <span class="brand-word">
+          KHYBER
+          <small>CHAI HOUSE &amp; GRILL</small>
+        </span>
       </a>
-      <a class="button outline brunch-back" href="/grill/">Khyber Chai &amp; Grill</a>
+
+      <nav class="nav" id="navigation" aria-label="Main navigation">
+        <a href="/#locations">Locations</a>
+        <a href="/grill/#menu">Our menus</a>
+        <a href="/grill/brunch/" aria-current="page">Brunch</a>
+        <a href="/grill/#wall">The wall</a>
+        <a class="optional" href="/grill/catering/">Catering</a>
+      <a href="/grill/lunch-pass/">Lunch pass</a><a href="https://khyber-chai-grill.square.site">Order now</a></nav>
     </div>
   </header>
   <main id="main">
